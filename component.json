@@ -1,94 +1,10 @@
 {
-  "title": "Petstore API (Node.js)",
-  "description": "elastic.io component for the Petstore API",
-  "docsUrl": "https://github.com/elasticio/petstore-component-nodejs",
+  "title": "Snazzy Contacts",
+  "description": "Snazzy Contacts OIH Adapter",
+  "docsUrl": "https://github.com/WiceDe/snazzy-adapter",
   "credentials": {
-    "fields": {
-      "apiKey": {
-        "label": "API key",
-        "required": true,
-        "viewClass": "TextFieldWithNoteView",
-        "note": "Please use <b>elasticio</b> as API key. For more details see <a href='https://petstore.elastic.io/docs/' target='_blank'>Petstore API docs</a>."
-      }
-    }
+    "fields": {}
   },
-  "triggers": {
-    "getPetsByStatusWithGenerators": {
-      "main": "./lib/triggers/getPetsByStatusWithGenerators.js",
-      "type": "polling",
-      "title": "Get Pets By Status With Generators",
-      "fields": {
-        "status": {
-          "label": "Pet Status",
-          "required": true,
-          "viewClass": "SelectView",
-          "model": {
-            "available": "Available",
-            "pending": "Pending",
-            "sold": "Sold"
-          },
-          "prompt": "Select Pet Status"
-        }
-      },
-      "metadata": {
-        "out": "./lib/schemas/getPetsByStatus.out.json"
-      }
-    },
-    "getPetsByStatusWithPromises": {
-      "main": "./lib/triggers/getPetsByStatusWithPromises.js",
-      "type": "polling",
-      "title": "Get Pets By Status With Promises",
-      "fields": {
-        "status": {
-          "label": "Pet Status",
-          "required": true,
-          "viewClass": "SelectView",
-          "model": {
-            "available": "Available",
-            "pending": "Pending",
-            "sold": "Sold"
-          },
-          "prompt": "Select Pet Status"
-        }
-      },
-      "metadata": {
-        "out": "./lib/schemas/getPetsByStatus.out.json"
-      }
-    },
-    "getPetsByStatusWithDynamicSelectModel": {
-      "main": "./lib/triggers/getPetsByStatusWithDynamicSelectModel.js",
-      "type": "polling",
-      "title": "Get Pets By Status With Dynamic Select Model",
-      "fields": {
-        "status": {
-          "label": "Pet Status",
-          "required": true,
-          "viewClass": "SelectView",
-          "model": "getStatusModel",
-          "prompt": "Select Pet Status"
-        }
-      },
-      "metadata": {
-        "out": "./lib/schemas/getPetsByStatus.out.json"
-      }
-    }
-  },
-  "actions": {
-    "createPetWithPromise": {
-      "main": "./lib/actions/createPetWithPromise.js",
-      "title": "Create a Pet With Promise",
-      "metadata": {
-        "in": "./lib/schemas/createPet.in.json",
-        "out": "./lib/schemas/createPet.out.json"
-      }
-    },
-    "createPetWithGenerators": {
-      "main": "./lib/actions/createPetWithGenerators.js",
-      "title": "Create a Pet With Generators",
-      "metadata": {
-        "in": "./lib/schemas/createPet.in.json",
-        "out": "./lib/schemas/createPet.out.json"
-      }
-    }
-  }
+  "triggers": {},
+  "actions": {}
 }
