@@ -3,8 +3,9 @@
   "version": "0.0.1",
   "description": "OIH Adapter for Snazzy Contacts",
   "scripts": {
-    "test": "exit 0",
-    "lint-fix": "eslint api tests --ext .js --ext .json --fix"
+    "lint-fix": "eslint api tests --ext .js --ext .json --fix",
+    "test": "NODE_ENV=test mocha test/* --timeout 10000",
+    "test-watch": "nodemon --exec \"npm test \""
   },
   "repository": {
     "type": "git",
