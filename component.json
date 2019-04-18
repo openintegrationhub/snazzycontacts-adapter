@@ -3,7 +3,21 @@
   "description": "Snazzy Contacts OIH Adapter",
   "docsUrl": "https://github.com/WiceDe/snazzy-adapter",
   "credentials": {
-    "fields": {}
+    "fields": {
+      "email": {
+        "label": "Your email",
+        "required": true,
+        "viewClass": "TextFieldView",
+        "note": "Use your email registerd in <b>Snazzy Contacts</b>",
+        "placeholder": "youremail@mail.com"
+      },
+      "password": {
+        "label": "Your password",
+        "required": true,
+        "viewClass": "PasswordFieldView",
+        "note": "Use your password for <b>Snazzy Contacts</b>"
+      }
+    }
   },
   "triggers": {},
   "actions": {}
