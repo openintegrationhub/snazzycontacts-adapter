@@ -14,7 +14,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
  */
 
-
 const { getToken } = require('./lib/utils/snazzy');
 
 async function verifyCredentials(credentials, cb) {
@@ -25,6 +24,7 @@ async function verifyCredentials(credentials, cb) {
       email: credentials.email,
       password: credentials.password,
     };
+
     const token = await getToken(cfg);
 
     if (token) {
