@@ -1,34 +1,43 @@
-"use strict";
-const request = require('request-promise');
-
-module.exports = verify;
-
 /**
- * Executes the verification logic by sending a simple to the Petstore API using the provided apiKey.
- * If the request succeeds, we can assume that the apiKey is valid. Otherwise it is not valid.
- *
- * @param credentials object to retrieve apiKey from
- *
- * @returns Promise sending HTTP request and resolving its response
+ * Copyright 2018 Wice GmbH
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
  */
-function verify(credentials) {
 
-    // access the value of the apiKey field defined in credentials section of component.json
-    const apiKey = credentials.apiKey;
 
-    if (!apiKey) {
-        throw new Error('API key is missing');
-    }
+const { getToken } = require('./lib/utils/snazzy');
 
-    // sending a request to the most simple endpoint of the target API
-    const requestOptions = {
-        uri: 'https://petstore.elastic.io/v2/user/me',
-        headers: {
-            'api-key': apiKey
-        },
-        json: true
+async function verifyCredentials(credentials, cb) {
+  console.log('Credentials passed for verification %j', credentials);
+
+  try {
+    const cfg = {
+      email: credentials.email,
+      password: credentials.password,
     };
+    const token = await getToken(cfg);
 
-    // if the request succeeds, we can assume the api key is valid
-    return request.get(requestOptions);
+    if (token) {
+      cb(null, { verified: true });
+      console.log('Credentials verified successfully');
+      return true;
+    }
+    throw new Error('Error in validating credentials!');
+    return false;
+  } catch (e) {
+    console.log(`${e}`);
+    throw new Error(e);
+  }
 }
+
+module.exports = verifyCredentials;
