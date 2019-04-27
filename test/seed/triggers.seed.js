@@ -270,4 +270,8 @@ const getPersonsSuccessful = nock('http://canary-api.snazzyapps.de/api/person')
     ],
   });
 
-module.exports = { getPersonsSuccessful };
+const getPersonsEmpty = nock('http://canary-api.snazzyapps.de/api/person')
+  .get('')
+  .reply(204, {});
+
+module.exports = { getPersonsSuccessful, getPersonsEmpty };
