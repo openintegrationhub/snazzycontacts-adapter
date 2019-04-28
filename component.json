@@ -35,7 +35,7 @@
       "type": "polling",
       "main": "./lib/triggers/getOrganiztionsPolling.js",
       "metadata": {
-        "out": "./lib/schemas/getOrganiztions.out.json"
+        "out": "./lib/schemas/getOrganizations.out.json"
       }
     }
   },
