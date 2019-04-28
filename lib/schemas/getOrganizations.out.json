@@ -1,21 +1,19 @@
 {
   "type": "object",
   "properties": {
-    "properties": {
-      "uid": {
-        "type": "string",
-        "required": true,
-        "title": "Uid",
-        "note": "Person's uid",
-        "placeholder": "3gbdq1jtsvxjot"
-      },
-      "name": {
-        "type": "string",
-        "required": true,
-        "title": "Name",
-        "note": "Organization's  name",
-        "placeholder": "Company Ltd."
-      }
+    "uid": {
+      "type": "string",
+      "required": true,
+      "title": "Uid",
+      "note": "Organization's uid",
+      "placeholder": "3gbdq1jtsvxjot"
+    },
+    "name": {
+      "type": "string",
+      "required": true,
+      "title": "Name",
+      "note": "Organization's name",
+      "placeholder": "Company Ltd."
     }
   }
 }
