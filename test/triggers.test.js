@@ -14,7 +14,7 @@ describe('Test triggers', () => {
 
   it('should get all persons', async () => {
     const snapshot = {
-      lastUpdated: 0,
+      lastUpdated: (new Date(0)).toISOString(),
     };
     const persons = await getPersons(token, snapshot);
     expect(persons).to.not.be.empty;
