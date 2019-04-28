@@ -31,9 +31,9 @@
     },
     "getOrganiztionsPolling": {
       "title": "Fetch new and updated organizations(getOrganizations - Polling)",
-      "description": "Get Snazzy Contacts persons which have recently been modified or created",
+      "description": "Get Snazzy Contacts organizations which have recently been modified or created",
       "type": "polling",
-      "main": "./lib/triggers/getOrganiztionsPolling.js",
+      "main": "./lib/triggers/getOrganizationsPolling.js",
       "metadata": {
         "out": "./lib/schemas/getOrganizations.out.json"
       }
