@@ -4,11 +4,11 @@
   "docsUrl": "https://github.com/WiceDe/snazzy-adapter",
   "credentials": {
     "fields": {
-      "email": {
-        "label": "Your email",
+      "username": {
+        "label": "Your username",
         "required": true,
         "viewClass": "TextFieldView",
-        "note": "Use your email registerd in <b>Snazzy Contacts</b>",
+        "note": "Use your username registerd in <b>Snazzy Contacts</b>",
         "placeholder": "youremail@mail.com"
       },
       "password": {

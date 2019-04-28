@@ -21,7 +21,7 @@ async function verifyCredentials(credentials, cb) {
 
   try {
     const cfg = {
-      username: credentials.email,
+      username: credentials.username,
       password: credentials.password,
     };
 
