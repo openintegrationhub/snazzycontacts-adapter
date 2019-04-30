@@ -4,11 +4,11 @@
   "docsUrl": "https://github.com/WiceDe/snazzy-adapter",
   "credentials": {
     "fields": {
-      "email": {
-        "label": "Your email",
+      "username": {
+        "label": "Your username",
         "required": true,
         "viewClass": "TextFieldView",
-        "note": "Use your email registerd in <b>Snazzy Contacts</b>",
+        "note": "Use your username registerd in <b>Snazzy Contacts</b>",
         "placeholder": "youremail@mail.com"
       },
       "password": {
@@ -29,13 +29,13 @@
         "out": "./lib/schemas/getPersons.out.json"
       }
     },
-    "getOrganiztionsPolling": {
-      "title": "Fetch new and updated organizations(getOrganizations - Polling)",
-      "description": "Get Snazzy Contacts persons which have recently been modified or created",
+    "getOrganizationsPolling": {
+      "title": "Fetch new and updated organizations(getOrganizations- Polling)",
+      "description": "Get Snazzy Contacts organizations which have recently been modified or created",
       "type": "polling",
-      "main": "./lib/triggers/getOrganiztionsPolling.js",
+      "main": "./lib/triggers/getOrganizationsPolling.js",
       "metadata": {
-        "out": "./lib/schemas/getOrganiztions.out.json"
+        "out": "./lib/schemas/getOrganizations.out.json"
       }
     }
   },
