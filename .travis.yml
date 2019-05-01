@@ -1,0 +1,38 @@
+language: node_js
+node_js:
+- '8'
+dist: trusty
+sudo: required
+before_script:
+    # - "sudo chown root /opt/google/chrome/chrome-sandbox"
+    # - "sudo chmod 4755 /opt/google/chrome/chrome-sandbox"
+    - "export DISPLAY=:99.0"
+    - "sh -e /etc/init.d/xvfb start"
+    - sleep 3 # give xvfb some time to start
+# addons:
+#   chrome: stable
+cache:
+  directories:
+  - node_modules
+# env:
+#     - NODE_ENV=ci
+install:
+- npm install
+script:
+- nohup npm run start &
+- sleep 3
+- npm run test
+
+after_success:
+  - eval "$(ssh-agent -s)" #start the ssh agent
+  - chmod 600 .travis/deploy_key.pem # this key should have push access
+  - ssh-add .travis/deploy_key.pem
+  - git remote add component oih-playground@git.elastic.io:snazzy-adapter.git
+  - git push component master
+
+# deploy:
+#   provider: heroku
+#   api_key:
+#     secure: PdPSmi0ajus9+y3f89bBNbB4Cdm1qV+c4HIz/6DA7NbXyhnqsSWvqpzcPO5bu/HN8sdhD0WWeCGssTZOkho7NlXgeKxLd12zEWOWyTm7gwRq8m5GvqUDcclLetsw9OL7AA+EzK8HWCVRMx8y2hQPDu8ICITfozcCaY6dyW8wAN+8GTjKuccwsj4gGifnaiZ/pHoQ5bUSZ1SGSsOlSdBh1iEBFhUKLKQJFTsy9lFRYLGhc1TEDSUO0tD4dd+i6lDAICxs/jDVAvC1ZzxgoxmAkVhIEyZNeGdzqKVH7bqOssyL/s/JrSqHXaqE8NICq4Fen9avlq7a0UQUmQm2td6YlxGDvN/xN6FYmp+oDq6BM6a7hcf7UV6CDDh1vcgsM0rRSG/CQUTQunTMaeS89Ab8/+3xKxKDKYrktVcqLgUJC7VlYDDoBCQWf6/GFxg1NsrRt4e6ePPkkKuV0QEuJwjYCh/EU7m91T/w+6pA7/etLrFOeAhX17R2CzNLzvFraP1MNiiHADVbUFCPftgqPlDT+WrdrVRUNGB4WzwxCAzmy5kR9aC8gerx82YaeDB9rx1f67SI+KVQTdqqFkhllYKg58vEctLoRa/Z0t/JFUd/mQU0qP8IHEslw/QFMqSdJO6rnsUsIPAA5bA52kNVxyBLhFD13fdEijpr2QNEOvCfndw=
+#   app: wicecrm-api
+#   skip_cleanup: true
