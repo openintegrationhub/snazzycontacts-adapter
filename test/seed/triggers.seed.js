@@ -25,7 +25,7 @@ const getPersonsSuccessful = nock('http://canary-api.snazzyapps.de/api/person')
             streetNumber: '688',
             unit: '',
             zipcode: '57294',
-            city: 'Ney York City',
+            city: 'New York City',
             district: 'NY',
             region: '',
             country: 'USA',
@@ -274,4 +274,82 @@ const getPersonsEmpty = nock('http://canary-api.snazzyapps.de/api/person')
   .get('')
   .reply(204, {});
 
-module.exports = { getPersonsSuccessful, getPersonsEmpty };
+const getOrganizationsSuccessful = nock('http://canary-api.snazzyapps.de/api/organization')
+  .get('')
+  .reply(200, {
+    data: [{
+      _id: '5b9a5113d76e887b8d59120a',
+      name: 'Wice GmbH',
+      logo: 'Logo',
+      uid: '3gbbj1jmg24hmh',
+      lastUpdate: '1553776079199',
+      addresses: [
+        {
+          uid: '3gbbu1jmkewc87',
+          street: 'Wendenstr',
+          streetNumber: '120',
+          unit: 'Hammerbrook',
+          zipcode: '20537',
+          city: 'Hamburg',
+          district: 'HH-Hamburg',
+          region: 'Hamburg',
+          country: 'Germany',
+          countryCode: '0049',
+          primaryContact: 'true',
+          description: 'Business Address',
+        },
+      ],
+      _v: '1',
+    },
+    {
+      _id: '5b9a5113d76e887b8d59120a',
+      name: 'Company Ltd',
+      logo: 'Logo',
+      uid: '3ghj7ajmg24hmh',
+      lastUpdate: '1553776074568',
+      addresses: [
+        {
+          uid: '59po91jmkewc87',
+          street: 'Main Str.',
+          streetNumber: '320',
+          unit: 'West Block',
+          zipcode: '78900',
+          city: 'New York City',
+          district: 'New York',
+          region: 'New York',
+          country: 'USA',
+          countryCode: '0010',
+          primaryContact: 'true',
+          description: 'Business Address',
+        },
+      ],
+      contactData: [],
+      categories: [],
+      relations: [
+        {
+          partner: {
+            uid: '3gbdq1jtsry748',
+            name: 'Jenk Ins',
+            kind: 'Person',
+            addresses: [],
+          },
+          uids: [
+            '3gbdq1jtss29zz',
+            '3gbdq1jtsry748',
+          ],
+          label: 'Employee',
+          typeRef: 'yj5rl1jszyqfn3',
+          type: 'OrganizationToPerson',
+          uid: '3gbdq1jtss31i0',
+        }],
+      _v: '1',
+    }],
+  });
+
+const getOrganizationsEmpty = nock('http://canary-api.snazzyapps.de/api/organization')
+  .get('')
+  .reply(204, {});
+
+module.exports = {
+  getPersonsSuccessful, getPersonsEmpty, getOrganizationsSuccessful, getOrganizationsEmpty,
+};
