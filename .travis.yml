@@ -23,6 +23,7 @@ script:
 - sleep 3
 - npm run test
 after_success:
+  - echo -e "Host *\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
   - eval "$(ssh-agent -s)" #start the ssh agent
   - echo -e $ci.pub > ~/.ssh/ci.pub
   - sudo chmod 600 ~/.ssh/*
