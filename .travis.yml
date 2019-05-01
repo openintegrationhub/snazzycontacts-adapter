@@ -24,10 +24,17 @@ script:
 - npm run test
 after_success:
   - echo -e "Host *\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
-  - eval "$(ssh-agent -s)" #start the ssh agent
   - echo -e $ci.pub > ~/.ssh/ci.pub
-  - echo $ci
+  - echo -e $ci > ~/.ssh/ci
   - sudo chmod 600 ~/.ssh/*
+  - sudo chmod 644 ~/.ssh/config
+  - eval `ssh-agent -s`
   - ssh-add ~/.ssh/ci
-  - git remote add component oih-playground@git.elastic.io:snazzy-adapter.git
-  - git push component master
+  # - echo -e "Host *\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
+  # - eval "$(ssh-agent -s)" #start the ssh agent
+  # - echo -e $ci.pub > ~/.ssh/ci.pub
+  # - echo $ci
+  # - sudo chmod 600 ~/.ssh/*
+  # - ssh-add ~/.ssh/ci
+  # - git remote add component oih-playground@git.elastic.io:snazzy-adapter.git
+  # - git push component master
