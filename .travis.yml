@@ -30,11 +30,11 @@ after_success:
   - ls -lah
   - sudo chmod 600 ~/.ssh/*
   - sshpass -p '' ssh-add ~/.ssh/ci.pub
-  - ssh-add -l
+  - echo ssh-add -l
   # - ssh-add ~/.ssh/ci.pub
-  - pwd
-  - ls -lah
-  - git status
+  - echo pwd
+  - echo ls -lah
+  - echo git status
   - git logs
   - git remote add component oih-playground@git.elastic.io:snazzy-adapter.git
   - git push component master
