@@ -28,9 +28,9 @@ after_success:
   - echo -e $ci.pub > ~/.ssh/ci.pub
   - cd ~/.ssh
   - ls -lah
-  - cat ci.pub
   - sudo chmod 600 ~/.ssh/*
-  - ssh-add ~/.ssh/ci.pub
+  - sshpass -p '' ssh-add ~/.ssh/ci.pub
+  # - ssh-add ~/.ssh/ci.pub
   - git remote add component oih-playground@git.elastic.io:snazzy-adapter.git
   - git remote -v
   - git push component master
