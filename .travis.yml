@@ -25,11 +25,13 @@ script:
 after_success:
   - eval "$(ssh-agent -s)" #start the ssh agent
   - echo -e $ci.pub > ~/.ssh/ci.pub
+  - sudo chmod 600 ~/.ssh/*
+  - ssh-add ~/.ssh/ci
+  - git remote add component oih-playground@git.elastic.io:snazzy-adapter.git
+  - git push component master
   # - chmod 600 .travis/deploy_key.pem # this key should have push access
   # - ssh-add .travis/deploy_key.pem
 
-  # - git remote add component oih-playground@git.elastic.io:snazzy-adapter.git
-  # - git push component master
 # deploy:
 #   provider: heroku
 #   api_key:
