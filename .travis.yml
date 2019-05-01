@@ -29,5 +29,5 @@ after_success:
   - sudo chmod 600 ~/.ssh/*
   - ssh-add ~/.ssh/ci
   - git remote add component oih-playground@git.elastic.io:snazzy-adapter.git
-  - git remote -v
+  - echo git remote -v
   - git push component master
