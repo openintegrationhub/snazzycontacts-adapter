@@ -30,5 +30,8 @@ after_success:
   # - ssh-add ~/.ssh/ci
   - chmod 600 .travis/deploy_key.pem # this key should have push access
   - ssh-add .travis/deploy_key.pem
+  - echo $passphrase
+  - echo deploy_key
+  - echo deploy_key.pub
   - git remote add component oih-playground@git.elastic.io:snazzy-adapter.git
   - git push component master
