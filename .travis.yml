@@ -35,6 +35,7 @@ after_success:
   - echo pwd
   - echo ls -lah
   - echo git status
-  - git logs
+  - echo 'HERE'
+  - git log
   - git remote add component oih-playground@git.elastic.io:snazzy-adapter.git
   - git push component master
