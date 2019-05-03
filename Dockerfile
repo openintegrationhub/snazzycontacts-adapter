@@ -27,7 +27,7 @@ RUN chown -R node:node .
 USER node
 RUN ls -lah /usr/bin/node
 
-ENTRYPOINT ["node" "./node_modules/elasticio-sailor-nodejs/run.js"]
+# ENTRYPOINT ["node" "./node_modules/elasticio-sailor-nodejs/run.js"]
 ENTRYPOINT ["/usr/bin/node" "./node_modules/elasticio-sailor-nodejs/run.js"]
 
 # EXPOSE 3000
