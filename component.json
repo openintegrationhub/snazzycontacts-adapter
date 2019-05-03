@@ -7,14 +7,13 @@
       "label": "Your username",
       "required": true,
       "viewClass": "TextFieldView",
-      "note": "Use your username registerd in <b>Snazzy Contacts</b>",
-      "placeholder": "youremail@mail.com"
+      "default": "youremail@mail.com"
     },
     "password": {
       "label": "Your password",
       "required": true,
       "viewClass": "PasswordFieldView",
-      "note": "Use your password for <b>Snazzy Contacts</b>"
+      "default": "youremail@mail.com"
     }
   },
   "actions": {
