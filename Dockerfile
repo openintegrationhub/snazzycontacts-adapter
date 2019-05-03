@@ -24,6 +24,9 @@ COPY . /usr/src/app
 RUN chown -R node:node .
 
 USER node
+RUN which node
+RUN which nodejs
+
 RUN ls -lah /usr/bin/
 
 # ENTRYPOINT ["node" "./node_modules/elasticio-sailor-nodejs/run.js"]
