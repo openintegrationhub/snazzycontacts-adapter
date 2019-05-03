@@ -23,7 +23,8 @@ USER node
 
 RUN node -v
 RUN npm -v
-RUN pwd 
+RUN pwd
+RUN ls -lah 
 
 ENTRYPOINT ["node" "./node_modules/elasticio-sailor-nodejs/run.js"]
 
