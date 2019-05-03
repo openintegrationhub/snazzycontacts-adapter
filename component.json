@@ -19,11 +19,10 @@
       }
     }
   },
-  "triggers": {
+  "actions": {
     "getPersonsPolling": {
       "title": "Fetch new and updated persons(getPersons - Polling)",
       "description": "Get Snazzy Contacts persons which have recently been modified or created",
-      "type": "polling",
       "main": "./lib/triggers/getPersonsPolling.js",
       "metadata": {
         "out": "./lib/schemas/getPersons.out.json"
@@ -38,6 +37,5 @@
         "out": "./lib/schemas/getOrganizations.out.json"
       }
     }
-  },
-  "actions": {}
+  }
 }
