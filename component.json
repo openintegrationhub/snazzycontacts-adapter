@@ -2,21 +2,19 @@
   "title": "Snazzy Contacts",
   "description": "Snazzy Contacts OIH Adapter",
   "docsUrl": "https://github.com/WiceDe/snazzy-adapter",
-  "credentials": {
-    "fields": {
-      "username": {
-        "label": "Your username",
-        "required": true,
-        "viewClass": "TextFieldView",
-        "note": "Use your username registerd in <b>Snazzy Contacts</b>",
-        "placeholder": "youremail@mail.com"
-      },
-      "password": {
-        "label": "Your password",
-        "required": true,
-        "viewClass": "PasswordFieldView",
-        "note": "Use your password for <b>Snazzy Contacts</b>"
-      }
+  "fields": {
+    "username": {
+      "label": "Your username",
+      "required": true,
+      "viewClass": "TextFieldView",
+      "note": "Use your username registerd in <b>Snazzy Contacts</b>",
+      "placeholder": "youremail@mail.com"
+    },
+    "password": {
+      "label": "Your password",
+      "required": true,
+      "viewClass": "PasswordFieldView",
+      "note": "Use your password for <b>Snazzy Contacts</b>"
     }
   },
   "actions": {
