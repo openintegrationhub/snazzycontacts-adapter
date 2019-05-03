@@ -33,6 +33,13 @@
       "metadata": {
         "out": "./lib/schemas/getOrganizations.out.json"
       }
+    },
+    "execute": {
+      "main": "./lib/actions/test.js",
+      "title": "Executes custom code",
+      "metadata": {
+        "out": {}
+      }
     }
   }
 }
