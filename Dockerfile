@@ -22,5 +22,5 @@ RUN chown -R 1000:1000 /usr/src/app
 USER node
 
 # EXPOSE 3000
-#
-# CMD ["npm", "start"]
+
+CMD ["node", "start.js"]
