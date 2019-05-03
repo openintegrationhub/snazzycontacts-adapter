@@ -23,7 +23,7 @@
       "description": "Get Snazzy Contacts persons which have recently been modified or created",
       "main": "./lib/triggers/getPersonsPolling.js",
       "metadata": {
-        "out": "./lib/schemas/getPersons.out.json"
+        "out": {}
       }
     },
     "getOrganizationsPolling": {
