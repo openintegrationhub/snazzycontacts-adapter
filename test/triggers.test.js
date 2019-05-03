@@ -45,7 +45,7 @@ describe('Test triggers', () => {
 
   it('should get all organizations', async () => {
     const snapshot = {
-      lastUpdated: (new Date(0)).toISOString(),
+      lastUpdated: (new Date(0)).getTime(),
     };
     const organizations = await getOrganizations(token, snapshot);
     expect(organizations).to.not.be.empty;
@@ -54,7 +54,7 @@ describe('Test triggers', () => {
     expect(organizations[1].name).to.equal('Company Ltd');
     expect(organizations[1].logo).to.equal('Logo');
     expect(organizations[1].uid).to.equal('3ghj7ajmg24hmh');
-    expect(organizations[1].lastUpdate).to.equal('1553776074568');
+    expect(organizations[1].lastUpdate).to.equal('1553776079568');
     expect(organizations[1].addresses[0].street).to.equal('Main Str.');
     expect(organizations[1].addresses[0].streetNumber).to.equal('320');
     expect(organizations[1].addresses[0].city).to.equal('New York City');

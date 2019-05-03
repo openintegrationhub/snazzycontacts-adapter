@@ -306,7 +306,7 @@ const getOrganizationsSuccessful = nock('http://canary-api.snazzyapps.de/api/org
       name: 'Company Ltd',
       logo: 'Logo',
       uid: '3ghj7ajmg24hmh',
-      lastUpdate: '1553776074568',
+      lastUpdate: '1553776079568',
       addresses: [
         {
           uid: '59po91jmkewc87',
