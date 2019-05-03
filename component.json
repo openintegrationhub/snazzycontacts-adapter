@@ -3,40 +3,27 @@
   "description": "Snazzy Contacts OIH Adapter",
   "docsUrl": "https://github.com/WiceDe/snazzy-adapter",
   "fields": {
-    "username": {
-      "label": "Your username",
+    "code": {
+      "viewClass": "CodeFieldView",
+      "label": "Code",
       "required": true,
-      "viewClass": "TextFieldView",
-      "default": "youremail@mail.com"
-    },
-    "password": {
-      "label": "Your password",
-      "required": true,
-      "viewClass": "PasswordFieldView",
-      "default": "youremail@mail.com"
+      "default": "// Please note only Node.js code is supported here\nasync function run(msg) {\n\tconsole.log('Incoming message is %s', JSON.stringify(msg));\n\tconst body = { result : 'Hello world!' };\n\t// You can emit as many data messages as required\n\tawait this.emit('data', { body });\n\tconsole.log('Execution finished');\n}"
     }
   },
   "actions": {
-    "getPersonsPolling": {
-      "title": "Fetch new and updated persons(getPersons - Polling)",
-      "description": "Get Snazzy Contacts persons which have recently been modified or created",
-      "main": "./lib/triggers/getPersonsPolling.js",
+    "execute": {
+      "main": "./actions/code.js",
+      "title": "Executes custom code",
       "metadata": {
         "out": {}
       }
-    },
-    "getOrganizationsPolling": {
-      "title": "Fetch new and updated organizations(getOrganizations- Polling)",
-      "description": "Get Snazzy Contacts organizations which have recently been modified or created",
-      "type": "polling",
-      "main": "./lib/triggers/getOrganizationsPolling.js",
-      "metadata": {
-        "out": "./lib/schemas/getOrganizations.out.json"
-      }
-    },
-    "execute": {
-      "main": "./lib/actions/test.js",
+    }
+  },
+  "triggers": {
+    "executeTrigger": {
+      "main": "./actions/code.js",
       "title": "Executes custom code",
+      "type": "polling",
       "metadata": {
         "out": {}
       }
