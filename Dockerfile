@@ -21,11 +21,10 @@ RUN npm install
 
 COPY . /usr/src/app
 
-
 RUN chown -R node:node .
 
 USER node
-RUN ls -lah /usr/bin/node
+RUN ls -lah /usr/bin/
 
 # ENTRYPOINT ["node" "./node_modules/elasticio-sailor-nodejs/run.js"]
 ENTRYPOINT ["/usr/bin/node" "./node_modules/elasticio-sailor-nodejs/run.js"]
