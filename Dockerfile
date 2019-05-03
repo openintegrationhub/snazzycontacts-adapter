@@ -21,6 +21,10 @@ RUN chown -R 1000:1000 /usr/src/app
 
 USER node
 
+RUN node -v
+RUN npm -v
+RUN pwd 
+
 ENTRYPOINT ["node" "./node_modules/elasticio-sailor-nodejs/run.js"]
 
 # EXPOSE 3000
