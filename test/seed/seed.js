@@ -34,20 +34,20 @@ const organizations = [{
 
 const persons = [{
   body: {
-    name: 'Brown',
-    firstname: 'Adam',
+    lastName: 'Brown',
+    firstName: 'Adam',
   },
 },
 {
   body: {
-    name: 'Doe',
-    firstname: 'John',
+    lastName: 'Doe',
+    firstName: 'John',
   },
 },
 {
   body: {
-    name: 'Kolarov',
-    firstname: 'Sebastian',
+    lastName: 'Kolarov',
+    firstName: 'Sebastian',
     email: 'kolarov@mail.com',
   },
 },
