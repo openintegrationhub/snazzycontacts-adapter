@@ -10,7 +10,6 @@ RUN apk --no-cache add \
     libc6-compat
 
 # CMD ["/bin/sh"]
-#
 # CMD ["node"]
 
 WORKDIR /usr/src/app
@@ -24,14 +23,17 @@ COPY . /usr/src/app
 # RUN chown -R node:node .
 
 # USER node
+
 RUN  pwd
 
-RUN ls -lah
+# RUN ls -lah
+
+RUN ls -lah /usr/local/bin/
 
 # ENTRYPOINT ["node" "./node_modules/elasticio-sailor-nodejs/run.js"]
-# ENTRYPOINT ["/usr/local/bin/node" "./node_modules/elasticio-sailor-nodejs/run.js"]
+ENTRYPOINT ["/usr/local/bin/node" "./node_modules/elasticio-sailor-nodejs/run.js"]
 
-CMD ["node" "./node_modules/elasticio-sailor-nodejs/run.js"]
+# CMD ["node" "./node_modules/elasticio-sailor-nodejs/run.js"]
 
 # EXPOSE 3000
 
