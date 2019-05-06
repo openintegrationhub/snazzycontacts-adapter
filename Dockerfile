@@ -50,5 +50,5 @@ COPY . /usr/src/app
 # ENTRYPOINT ["node" "./node_modules/elasticio-sailor-nodejs/run.js"]
 # ENTRYPOINT ["/usr/local/bin/node" "./node_modules/elasticio-sailor-nodejs/run.js"]
 
-CMD ["node -v"]
+CMD ["npm" "start"]
 # CMD ["node" "./node_modules/elasticio-sailor-nodejs/run.js"]
