@@ -24,9 +24,9 @@ COPY . /usr/src/app
 # RUN chown -R node:node .
 
 # USER node
-CMD pwd
+RUN  pwd
 
-CMD ls -lah
+RUN ls -lah
 
 ENTRYPOINT ["node" "./node_modules/elasticio-sailor-nodejs/run.js"]
 # ENTRYPOINT ["/usr/local/bin/node" "./node_modules/elasticio-sailor-nodejs/run.js"]
