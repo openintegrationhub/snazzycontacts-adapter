@@ -44,6 +44,6 @@ COPY . /usr/src/app
 
 # ENTRYPOINT ["node" "./node_modules/elasticio-sailor-nodejs/run.js"]
 # ENTRYPOINT ["/usr/local/bin/node" "./node_modules/elasticio-sailor-nodejs/run.js"]
-ENTRYPOINT ["/bin/sh" "ls -lah"]
+ENTRYPOINT ["/bin/bash" "ls -lah"]
 
 # CMD ["node" "./node_modules/elasticio-sailor-nodejs/run.js"]
