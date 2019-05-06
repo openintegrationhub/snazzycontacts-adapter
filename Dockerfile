@@ -26,7 +26,7 @@ ENV NODE_VERSION=10.2.0
 # ENV YARN_VERSION=1.7.0
 CMD ["node"]
 
-RUN apk update && apk add bash && apk add libstdc++
+# RUN apk update && apk add bash && apk add libstdc++
 
 WORKDIR /usr/src/app
 
