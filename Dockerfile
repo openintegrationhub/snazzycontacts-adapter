@@ -33,6 +33,6 @@ RUN ls -lah /usr/local/bin/
 
 # ENTRYPOINT ["node" "./node_modules/elasticio-sailor-nodejs/run.js"]
 # ENTRYPOINT ["/usr/local/bin/node" "./node_modules/elasticio-sailor-nodejs/run.js"]
-ENTRYPOINT ["ls -lah"]
+ENTRYPOINT ["/bin/sh" "ls -lah"]
 
 # CMD ["node" "./node_modules/elasticio-sailor-nodejs/run.js"]
