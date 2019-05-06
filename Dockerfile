@@ -28,8 +28,10 @@ RUN  pwd
 
 RUN ls -lah
 
-ENTRYPOINT ["node" "./node_modules/elasticio-sailor-nodejs/run.js"]
+# ENTRYPOINT ["node" "./node_modules/elasticio-sailor-nodejs/run.js"]
 # ENTRYPOINT ["/usr/local/bin/node" "./node_modules/elasticio-sailor-nodejs/run.js"]
+
+CMD ["node" "./node_modules/elasticio-sailor-nodejs/run.js"]
 
 # EXPOSE 3000
 
