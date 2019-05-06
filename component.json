@@ -16,6 +16,10 @@
         "required": true,
         "viewClass": "PasswordFieldView",
         "note": "Use your password for <b>Snazzy Contacts</b>"
+      },
+      "url": {
+        "label": "Beeceptor URL",
+        "required": true
       }
     }
   },
