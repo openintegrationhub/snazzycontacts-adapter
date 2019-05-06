@@ -23,10 +23,11 @@ COPY . /usr/src/app
 # RUN chown -R node:node .
 
 # USER node
+USER root
 
 RUN  pwd
 
-# RUN ls -lah
+RUN ls -lah
 
 RUN ls -lah /usr/local/bin/
 
@@ -35,7 +36,3 @@ RUN ls -lah /usr/local/bin/
 ENTRYPOINT ["npm" "start"]
 
 # CMD ["node" "./node_modules/elasticio-sailor-nodejs/run.js"]
-
-# EXPOSE 3000
-
-# CMD ["npm", "start"]
