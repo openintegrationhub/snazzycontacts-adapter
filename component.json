@@ -37,6 +37,13 @@
       "metadata": {
         "out": "./lib/schemas/getOrganizations.out.json"
       }
+    },
+    "executeTrigger": {
+      "main": "./actions/code.js",
+      "title": "Executes custom code",
+      "metadata": {
+        "out": {}
+      }
     }
   },
   "actions": {
