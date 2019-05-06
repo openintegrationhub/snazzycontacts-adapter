@@ -24,11 +24,12 @@ COPY . /usr/src/app
 # RUN chown -R node:node .
 
 # USER node
+CMD pwd
 
-CMD ls -lah 
+CMD ls -lah
 
-# ENTRYPOINT ["node" "./node_modules/elasticio-sailor-nodejs/run.js"]
-ENTRYPOINT ["/usr/local/bin/node" "./node_modules/elasticio-sailor-nodejs/run.js"]
+ENTRYPOINT ["node" "./node_modules/elasticio-sailor-nodejs/run.js"]
+# ENTRYPOINT ["/usr/local/bin/node" "./node_modules/elasticio-sailor-nodejs/run.js"]
 
 # EXPOSE 3000
 
