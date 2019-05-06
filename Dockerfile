@@ -31,7 +31,8 @@ RUN  pwd
 RUN ls -lah /usr/local/bin/
 
 # ENTRYPOINT ["node" "./node_modules/elasticio-sailor-nodejs/run.js"]
-ENTRYPOINT ["/usr/local/bin/node" "./node_modules/elasticio-sailor-nodejs/run.js"]
+# ENTRYPOINT ["/usr/local/bin/node" "./node_modules/elasticio-sailor-nodejs/run.js"]
+ENTRYPOINT ["npm" "start"]
 
 # CMD ["node" "./node_modules/elasticio-sailor-nodejs/run.js"]
 
