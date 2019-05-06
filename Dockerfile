@@ -9,9 +9,9 @@ RUN apk --no-cache add \
     g++ \
     libc6-compat
 
-CMD ["/bin/sh"]
-
-CMD ["node"]
+# CMD ["/bin/sh"]
+#
+# CMD ["node"]
 
 WORKDIR /usr/src/app
 
