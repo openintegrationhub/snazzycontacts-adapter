@@ -13,7 +13,7 @@ describe('Test actions', () => {
     // createOrganizationFailed;
   });
 
-  it.only('should create a person', async () => {
+  it('should create a person', async () => {
     const person = await upsertPerson(persons[0], token);
     expect(person).to.not.be.empty;
     expect(person).to.be.a('object');

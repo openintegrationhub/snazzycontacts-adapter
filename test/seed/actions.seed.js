@@ -1,6 +1,6 @@
 const nock = require('nock');
 
-const createPersonSuccessful = nock('http://canary-api.snazzyapps.de/api/person')
+const createPersonSuccessful = nock('http://api.snazzyapps.de/api/person')
   .post('')
   .reply(200, {
     eventId: 'yj5o81jvazco6v',

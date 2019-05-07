@@ -1,6 +1,6 @@
 const nock = require('nock');
 
-const getPersonsSuccessful = nock('http://canary-api.snazzyapps.de/api/person')
+const getPersonsSuccessful = nock('http://api.snazzyapps.de/api/person')
   .get('')
   .reply(200, {
     data: [
@@ -270,11 +270,11 @@ const getPersonsSuccessful = nock('http://canary-api.snazzyapps.de/api/person')
     ],
   });
 
-const getPersonsEmpty = nock('http://canary-api.snazzyapps.de/api/person')
+const getPersonsEmpty = nock('http://api.snazzyapps.de/api/person')
   .get('')
   .reply(204, {});
 
-const getOrganizationsSuccessful = nock('http://canary-api.snazzyapps.de/api/organization')
+const getOrganizationsSuccessful = nock('http://api.snazzyapps.de/api/organization')
   .get('')
   .reply(200, {
     data: [{
@@ -346,7 +346,7 @@ const getOrganizationsSuccessful = nock('http://canary-api.snazzyapps.de/api/org
     }],
   });
 
-const getOrganizationsEmpty = nock('http://canary-api.snazzyapps.de/api/organization')
+const getOrganizationsEmpty = nock('http://api.snazzyapps.de/api/organization')
   .get('')
   .reply(204, {});
 
