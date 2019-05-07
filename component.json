@@ -59,12 +59,10 @@
       }
     },
     "upsertPerson": {
-      "execute": {
-        "main": ".lib/actions/upsertPerson.js",
-        "title": "Upsert person in Snazzy Contacts",
-        "metadata": {
-          "out": {}
-        }
+      "main": ".lib/actions/upsertPerson.js",
+      "title": "Upsert person in Snazzy Contacts",
+      "metadata": {
+        "out": {}
       }
     }
   }
