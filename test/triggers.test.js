@@ -35,7 +35,7 @@ describe('Test triggers', () => {
     expect(persons[0].contactData[2].type).to.equal('linkedIn');
   });
 
-  it('should throw an exception that no persons were found', async () => {
+  it('should throw an exception if no persons were found', async () => {
     const snapshot = {
       lastUpdated: 0,
     };
@@ -70,7 +70,7 @@ describe('Test triggers', () => {
     expect(organizations[1].relations[0].type).to.equal('OrganizationToPerson');
   });
 
-  it('should throw an exception that no organizations were found', async () => {
+  it('should throw an exception if no organizations were found', async () => {
     const snapshot = {
       lastUpdated: 0,
     };

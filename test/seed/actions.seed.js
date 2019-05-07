@@ -27,3 +27,7 @@ const createPersonSuccessful = nock('http://api.snazzyapps.de/api/person')
       birthday: '',
     },
   });
+
+const createPersonFailed = nock('http://api.snazzyapps.de/api/person')
+  .post('')
+  .reply(400, 'Data does not match schema!');
