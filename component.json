@@ -41,26 +41,20 @@
       "metadata": {
         "out": "./lib/schemas/getOrganizations.out.json"
       }
-    },
-    "executeTrigger": {
-      "main": "./actions/code.js",
-      "title": "Executes custom code",
-      "metadata": {
-        "out": {}
-      }
     }
   },
   "actions": {
-    "execute": {
-      "main": "./actions/code.js",
-      "title": "Executes custom code",
-      "metadata": {
-        "out": {}
-      }
-    },
     "upsertPerson": {
       "main": "./lib/actions/upsertPerson.js",
-      "title": "Upsert person in Snazzy Contacts",
+      "title": "Upsert a person in Snazzy Contacts",
+      "metadata": {
+        "in": "./lib/schemas/upsertPerson.in.json",
+        "out": "./lib/schemas/upsertPerson.out.json"
+      }
+    },
+    "upsertOrganization": {
+      "main": "./lib/actions/upsertOrganization.js",
+      "title": "Upsert an organization  in Snazzy Contacts",
       "metadata": {
         "out": {}
       }
