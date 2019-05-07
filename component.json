@@ -19,7 +19,7 @@
       },
       "url": {
         "label": "Beeceptor URL",
-        "required": true
+        "required": false
       }
     }
   },
