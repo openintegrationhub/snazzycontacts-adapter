@@ -16,10 +16,6 @@
         "required": true,
         "viewClass": "PasswordFieldView",
         "note": "Use your password for <b>Snazzy Contacts</b>"
-      },
-      "url": {
-        "label": "Beeceptor URL",
-        "required": false
       }
     }
   },
@@ -45,8 +41,8 @@
   },
   "actions": {
     "upsertPerson": {
-      "main": "./lib/actions/upsertPerson.js",
       "title": "Upsert a person in Snazzy Contacts",
+      "main": "./lib/actions/upsertPerson.js",
       "metadata": {
         "in": "./lib/schemas/upsertPerson.in.json",
         "out": "./lib/schemas/upsertPerson.out.json"
@@ -56,7 +52,8 @@
       "main": "./lib/actions/upsertOrganization.js",
       "title": "Upsert an organization  in Snazzy Contacts",
       "metadata": {
-        "out": {}
+        "in": "./lib/schemas/upsertPerson.in.json",
+        "out": "./lib/schemas/upsertPerson.out.json"
       }
     }
   }
