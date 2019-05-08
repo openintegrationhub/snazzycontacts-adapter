@@ -9,21 +9,21 @@ RUN apk --no-cache add \
     g++ \
     libc6-compat
 
-CMD ["/bin/sh"]
-
-CMD ["node"]
-
+# CMD ["/bin/sh"]
+#
+# CMD ["node"]
 
 WORKDIR /usr/src/app
 
 COPY package.json /usr/src/app
 
-RUN npm install
+RUN npm install --production
 
 COPY . /usr/src/app
 
-# RUN chown -R node:node .
+RUN chown -R node:node .
 
-# USER node
+USER node
 
-ENTRYPOINT ["npm", "start"]
+ENTRYPOINT ["node", "./node_modules/elasticio-sailor-nodejs/run.js"]
+# ENTRYPOINT ["npm", "start"]
