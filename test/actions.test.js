@@ -7,7 +7,7 @@ const {
 } = require('./seed/actions.seed');
 const { persons, organizations } = require('./seed/seed');
 
-describe('Test actions', () => {
+describe('Actions - upsertPerson & upsertOrganization', () => {
   let token;
   before(async () => {
     createPersonSuccessful;
@@ -27,7 +27,7 @@ describe('Test actions', () => {
     expect(person.payload.lastName).to.equal('Doe');
   });
 
-  it('should throw an exception if input does not match model', async () => {
+  it('should throw an exception if input does not match models', async () => {
     const input = {
       name: 'Jane',
       lastName: 'Smith',

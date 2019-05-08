@@ -3,7 +3,7 @@ const { getToken } = require('./../lib/utils/snazzy');
 const { configOptions } = require('./seed/seed');
 const { loginSuccessful, loginFailed, loginFailedUser } = require('./seed/utils.seed');
 
-describe('Test utils', () => {
+describe('Authorization process', () => {
   before(async () => {
     loginSuccessful;
     loginFailed;

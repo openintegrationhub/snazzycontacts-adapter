@@ -7,7 +7,7 @@ const {
   getPersonsSuccessful, getPersonsEmpty, getOrganizationsSuccessful, getOrganizationsEmpty,
 } = require('./seed/triggers.seed');
 
-describe('Test triggers', () => {
+describe('Triggers - getPersons & getOrganizations', () => {
   let token;
   before(async () => {
     // token = await getToken(configOptions);
