@@ -268,6 +268,9 @@ const getPersonsSuccessful = nock('http://api.snazzyapps.de/api/person')
         displayName: 'steve',
       },
     ],
+    meta: {
+      count: 10,
+    },
   });
 
 const getPersonsEmpty = nock('http://api.snazzyapps.de/api/person')
