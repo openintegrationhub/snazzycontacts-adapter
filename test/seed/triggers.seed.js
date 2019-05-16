@@ -1,6 +1,6 @@
 const nock = require('nock');
 
-const getPersonsSuccessful = nock('http://api.snazzyapps.de/api/person')
+const getPersonsSuccessful = nock('http://api.snazzyapps.de/api/person?page=1')
   .get('')
   .reply(200, {
     data: [
