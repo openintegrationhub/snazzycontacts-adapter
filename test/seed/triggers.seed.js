@@ -1,6 +1,6 @@
 const nock = require('nock');
 
-const getPersonsSuccessful = nock('http://api.snazzyapps.de/api/person?page=1')
+const getPersonsSuccessful = nock('https://api.snazzycontacts.com/api/person?page=1')
   .get('')
   .reply(200, {
     data: [
@@ -273,11 +273,11 @@ const getPersonsSuccessful = nock('http://api.snazzyapps.de/api/person?page=1')
     },
   });
 
-const getPersonsEmpty = nock('http://api.snazzyapps.de/api/person')
+const getPersonsEmpty = nock('https://api.snazzycontacts.com/api/person')
   .get('')
   .reply(204, {});
 
-const getOrganizationsSuccessful = nock('http://api.snazzyapps.de/api/organization')
+const getOrganizationsSuccessful = nock('https://api.snazzycontacts.com/api/organization')
   .get('')
   .reply(200, {
     data: [{
@@ -349,7 +349,7 @@ const getOrganizationsSuccessful = nock('http://api.snazzyapps.de/api/organizati
     }],
   });
 
-const getOrganizationsEmpty = nock('http://api.snazzyapps.de/api/organization')
+const getOrganizationsEmpty = nock('https://api.snazzycontacts.com/api/organization')
   .get('')
   .reply(204, {});
 

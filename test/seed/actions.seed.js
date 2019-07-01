@@ -1,6 +1,6 @@
 const nock = require('nock');
 
-const createPersonSuccessful = nock('http://api.snazzyapps.de/api/person')
+const createPersonSuccessful = nock('https://api.snazzycontacts.com/api/person')
   .post('')
   .reply(200, {
     eventId: 'yj5o81jvazco6v',
@@ -28,11 +28,11 @@ const createPersonSuccessful = nock('http://api.snazzyapps.de/api/person')
     },
   });
 
-const createPersonFailed = nock('http://api.snazzyapps.de/api/person')
+const createPersonFailed = nock('https://api.snazzycontacts.com/api/person')
   .post('')
   .reply(400, 'Data does not match schema!');
 
-const createOrganizationSuccessful = nock('http://api.snazzyapps.de/api/organization')
+const createOrganizationSuccessful = nock('https://api.snazzycontacts.com/api/organization')
   .post('')
   .reply(200, {
     eventId: '3gbds1jvduhqiw',
@@ -68,6 +68,6 @@ const createOrganizationSuccessful = nock('http://api.snazzyapps.de/api/organiza
     },
   });
 
-const createOrganizationFailed = nock('http://api.snazzyapps.de/api/organization')
+const createOrganizationFailed = nock('https://api.snazzycontacts.com/api/organization')
   .post('')
   .reply(400, 'Data does not match schema!');
