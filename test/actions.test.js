@@ -1,22 +1,50 @@
 const { expect } = require('chai');
 const { getToken } = require('./../lib/utils/snazzy');
-const { upsertPerson } = require('./../lib/actions/upsertPerson.js');
+const {
+  upsertPerson, checkForExistingUser, resolveConflict, processAction,
+} = require('./../lib/actions/upsertPerson.js');
 const { upsertOrganization } = require('./../lib/actions/upsertOrganization.js');
 const {
-  createPersonSuccessful, createPersonFailed, createOrganizationSuccessful, createOrganizationFailed,
+  createPersonSuccessful,
+  createPersonFailed,
+  createOrganizationSuccessful,
+  createOrganizationFailed,
+  getPerson,
+  getPersonFailed,
+  getPersonNoToken,
 } = require('./seed/actions.seed');
 const { persons, organizations } = require('./seed/seed');
 
 describe('Actions - upsertPerson & upsertOrganization', () => {
-  let token;
+  const token = 'WXYUFOmgDdoniZatfaMTa4Ov-An98v2-4668x5fXOoLZS';
   before(async () => {
     createPersonSuccessful;
     createPersonFailed;
     createOrganizationSuccessful;
     createOrganizationFailed;
+    getPerson;
+    getPersonFailed;
+    getPersonNoToken;
+  });
+
+  it('should resolve a conflict', async () => {
+    const res = resolveConflict(persons[3], persons[4]);
+  });
+
+  it('should check for an existing person', async () => {
+    const personExists = await checkForExistingUser(persons[0], token);
+  });
+
+  xit('should check .... 1', async () => {
+    const personExists = await checkForExistingUser(persons[1], token);
+  });
+
+  xit('should check .... 2', async () => {
+    const personExists = await checkForExistingUser(persons[2], undefined);
   });
 
   it('should create a person', async () => {
+    // const personExists = await checkForExistingUser(persons[0], token);
     const person = await upsertPerson(persons[0], token);
     expect(person).to.not.be.empty;
     expect(person).to.be.a('object');
