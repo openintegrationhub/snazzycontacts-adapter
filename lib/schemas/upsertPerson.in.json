@@ -1,6 +1,13 @@
 {
   "type": "object",
   "properties": {
+    "uid": {
+      "type": "string",
+      "required": true,
+      "title": "Uid",
+      "note": "Person's uid",
+      "placeholder": "25mop1jxq2ss3x"
+    },
     "firstname": {
       "type": "string",
       "required": true,
