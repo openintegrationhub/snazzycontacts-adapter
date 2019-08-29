@@ -1,1 +1,1 @@
-# oih-snazzycontacts-component
+# oih-snazzycontacts-adapter
