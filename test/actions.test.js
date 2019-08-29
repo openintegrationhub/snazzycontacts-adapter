@@ -57,8 +57,11 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
 
   it('should throw an exception if input does not match models', async () => {
     const input = {
-      name: 'Jane',
-      lastName: 'Smith',
+      body: {
+        uid: '5h4k3j23211',
+        firstName: 'Jane',
+        lastName: 'Smith',
+      },
     };
     const person = await upsertPerson(input, token);
     expect(person.statusCode).to.be.equal(400);
