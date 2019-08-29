@@ -8,7 +8,7 @@
       "note": "Person's uid",
       "placeholder": "25mop1jxq2ss3x"
     },
-    "firstname": {
+    "firstName": {
       "type": "string",
       "required": true,
       "title": "First name",
