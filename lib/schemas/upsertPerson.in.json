@@ -15,10 +15,10 @@
       "note": "Person's last name",
       "placeholder": "Doe"
     },
-    "name": {
+    "lastName": {
       "type": "string",
       "required": true,
-      "title": "Name",
+      "title": "Last Name",
       "note": "Person's last name",
       "placeholder": "Doe"
     },
