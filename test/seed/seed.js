@@ -34,21 +34,21 @@ const organizations = [{
 
 const persons = [{
   body: {
-    rowid: '25mop1jxq2ss3x',
+    uid: '25mop1jxq2ss3x',
     lastName: 'Brown',
     firstName: 'Adam',
   },
 },
 {
   body: {
-    rowid: '123asd',
+    uid: '123asd',
     lastName: 'Doe',
     firstName: 'John',
   },
 },
 {
   body: {
-    rowid: '98hkp1jxq2ss3x',
+    uid: '98hkp1jxq2ss3x',
     lastName: 'Kolarov',
     firstName: 'Sebastian',
     email: 'kolarov@mail.com',
