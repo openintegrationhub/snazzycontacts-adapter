@@ -3,7 +3,7 @@
   "properties": {
     "uid": {
       "type": "string",
-      "required": true,
+      "required": false,
       "title": "Uid",
       "note": "Person's uid",
       "placeholder": "25mop1jxq2ss3x"
