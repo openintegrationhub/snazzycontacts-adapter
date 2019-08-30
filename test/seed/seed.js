@@ -37,6 +37,8 @@ const persons = [{
     uid: '25mop1jxq2ss3x',
     lastName: 'Brown',
     firstName: 'Adam',
+    categories: [],
+    relations: [],
   },
 },
 {
@@ -44,6 +46,8 @@ const persons = [{
     uid: '123asd',
     lastName: 'Doe',
     firstName: 'John',
+    categories: [],
+    relations: [],
   },
 },
 {

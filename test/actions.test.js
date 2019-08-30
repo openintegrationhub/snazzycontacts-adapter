@@ -1,8 +1,13 @@
 const { expect } = require('chai');
 const { getToken } = require('./../lib/utils/snazzy');
+const { upsertPerson } = require('./../lib/actions/upsertPerson.js');
+
 const {
-  upsertPerson, checkForExistingUser, resolveConflict, processAction,
-} = require('./../lib/actions/upsertPerson.js');
+  resolve,
+  checkForExistingUser,
+  resolveConflict,
+} = require('./../lib/utils/resolver.js');
+
 const { upsertOrganization } = require('./../lib/actions/upsertOrganization.js');
 const {
   createPersonSuccessful,
@@ -27,6 +32,11 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
     getPerson;
     getPersonFailed;
     getPersonNoToken;
+  });
+
+  xit('should ...........', async () => {
+    const res = await resolve(persons[3], token);
+    console.log(res);
   });
 
   it('should resolve a conflict', async () => {
