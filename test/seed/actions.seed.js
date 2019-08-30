@@ -96,7 +96,7 @@ const getPerson = nock('https://api.snazzycontacts.com/api/person/25mop1jxq2ss3x
       role: 'USER',
       user: '5d1f42743805f3001257392e',
       tenant: '5d1f420d3805f3001257392d',
-      username: 'shterion.yanev@yahoo.com',
+      username: 'admin@wice.de',
     },
     addresses: [],
     contactData: [],
@@ -110,6 +110,25 @@ const getPerson = nock('https://api.snazzycontacts.com/api/person/25mop1jxq2ss3x
     __v: 0,
     lastUpdateBy: null,
     lastUpdateById: null,
+  });
+
+const updatePerson = nock('https://api.snazzycontacts.com/api/person/25mop1jxq2ss3x')
+  .put('')
+  .reply(200, {
+    eventId: 'o0d48u31jzxuwspc',
+    eventName: 'PersonLastNameUpdated',
+    meta: {
+      role: 'USER',
+      user: '5d1f420cf7a2170011747690',
+      tenant: '5d1f420d3805f3001257392d',
+      username: 'admin@wice.de',
+    },
+    timeStamp: 1567153802064,
+    causalId: 0,
+    payload: {
+      uid: '25mop1jzwjc4by',
+      lastName: 'Stevenson',
+    },
   });
 
 const getPersonFailed = nock('https://api.snazzycontacts.com/api/person/123asd')

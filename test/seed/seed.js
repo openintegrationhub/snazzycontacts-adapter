@@ -113,7 +113,7 @@ const persons = [{
   lastName: 'Johnson',
   photo: 'https://cdn3.iconfinder.com/data/icons/ultimate-social/150/43_yahoo-512.png',
   uid: '25mop1jxq2ss3x',
-  gender: 'female',
+  gender: 'male',
   jobTitle: '',
   nickname: '',
   displayName: '',
