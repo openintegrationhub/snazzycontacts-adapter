@@ -140,6 +140,11 @@ const getPersonNoToken = nock('https://api.snazzycontacts.com/api/person/98hkp1j
   .reply(401);
 
 module.exports = {
+  createPersonSuccessful,
+  createPersonFailed,
+  createOrganizationSuccessful,
+  createOrganizationFailed,
+  updatePerson,
   getPerson,
   getPersonFailed,
   getPersonNoToken,
