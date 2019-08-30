@@ -9,6 +9,7 @@ const {
   createPersonFailed,
   createOrganizationSuccessful,
   createOrganizationFailed,
+  updatePerson,
   getPerson,
   getPersonFailed,
   getPersonNoToken,
@@ -22,6 +23,7 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
     createPersonFailed;
     createOrganizationSuccessful;
     createOrganizationFailed;
+    updatePerson;
     getPerson;
     getPersonFailed;
     getPersonNoToken;
@@ -29,23 +31,43 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
 
   it('should resolve a conflict', async () => {
     const res = resolveConflict(persons[3], persons[4]);
+    expect(res.firstName).to.equal('Mark');
+    expect(res.lastName).to.equal('Smith');
+    expect(res.uid).to.equal('25mop1jxq2ss3x');
+    expect(res.gender).to.equal('male');
+    expect(res.meta).to.be.a('object');
+    expect(res.addresses[0].street).to.equal('Some Str.');
+    expect(res.addresses.length).to.equal(2);
+    expect(res.contactData.length).to.equal(3);
+    expect(res.categories.length).to.equal(3);
+    expect(res.relations.length).to.equal(0);
   });
 
   it('should check for an existing person', async () => {
-    const personExists = await checkForExistingUser(persons[0], token);
+    const res = await checkForExistingUser(persons[0], token);
+    expect(res.firstName).to.equal('Yahoouser');
+    expect(res.lastName).to.equal('Accountname');
+    expect(res.uid).to.equal('25mop1jxq2ss3x');
+    expect(res.gender).to.equal('');
+    expect(res.meta).to.be.a('object');
+    expect(res.addresses.length).to.equal(0);
+    expect(res.contactData.length).to.equal(0);
+    expect(res.categories.length).to.equal(1);
+    expect(res.relations.length).to.equal(0);
   });
 
-  xit('should check .... 1', async () => {
-    const personExists = await checkForExistingUser(persons[1], token);
+  it('should return false if response is undefined', async () => {
+    const res = await checkForExistingUser(persons[1], token);
+    expect(res).to.be.false;
   });
 
-  xit('should check .... 2', async () => {
-    const personExists = await checkForExistingUser(persons[2], undefined);
+  it('should return false if token is undefined', async () => {
+    const res = await checkForExistingUser(persons[2], undefined);
+    expect(res).to.be.false;
   });
 
   it('should create a person', async () => {
-    // const personExists = await checkForExistingUser(persons[0], token);
-    const person = await upsertPerson(persons[0], token);
+    const person = await upsertPerson(persons[0], token, false);
     expect(person).to.not.be.empty;
     expect(person).to.be.a('object');
     expect(person.eventName).to.equal('PersonCreated');
@@ -53,6 +75,17 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
     expect(person.meta.username).to.equal('admin@wice.de');
     expect(person.payload.firstName).to.equal('John');
     expect(person.payload.lastName).to.equal('Doe');
+  });
+
+  it('should update a person', async () => {
+    const person = await upsertPerson(persons[4], token, true);
+    expect(person).to.not.be.empty;
+    expect(person).to.be.a('object');
+    expect(person.eventName).to.equal('PersonLastNameUpdated');
+    expect(person.meta.role).to.equal('USER');
+    expect(person.meta.username).to.equal('admin@wice.de');
+    expect(person.payload.uid).to.equal('25mop1jzwjc4by');
+    expect(person.payload.lastName).to.equal('Stevenson');
   });
 
   it('should throw an exception if input does not match models', async () => {
@@ -63,7 +96,7 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
         lastName: 'Smith',
       },
     };
-    const person = await upsertPerson(input, token);
+    const person = await upsertPerson(input, token, false);
     expect(person.statusCode).to.be.equal(400);
     expect(person.error).to.be.equal('Data does not match schema!');
   });
