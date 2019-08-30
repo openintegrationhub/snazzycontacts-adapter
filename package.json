@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "OIH Adapter for Snazzy Contacts",
   "scripts": {
-    "lint-fix": "eslint api tests --ext .js --ext .json --fix",
+    "lint-fix": "eslint lib test --ext .js --ext .json --fix",
     "test": "NODE_ENV=test mocha test/* --timeout 10000",
     "test-watch": "nodemon --exec \"npm test \"",
     "start": "node ./node_modules/elasticio-sailor-nodejs/run.js"
