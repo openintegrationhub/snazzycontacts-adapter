@@ -4,7 +4,7 @@ const { upsertPerson } = require('./../lib/actions/upsertPerson.js');
 
 const {
   resolve,
-  checkForExistingUser,
+  checkForExistingObject,
   resolveConflict,
 } = require('./../lib/utils/resolver.js');
 
@@ -54,7 +54,7 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
   });
 
   it('should check for an existing person', async () => {
-    const res = await checkForExistingUser(persons[0], token);
+    const res = await checkForExistingObject(persons[0], token);
     expect(res.firstName).to.equal('Yahoouser');
     expect(res.lastName).to.equal('Accountname');
     expect(res.uid).to.equal('25mop1jxq2ss3x');
@@ -67,12 +67,12 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
   });
 
   it('should return false if response is undefined', async () => {
-    const res = await checkForExistingUser(persons[1], token);
+    const res = await checkForExistingObject(persons[1], token);
     expect(res).to.be.false;
   });
 
   it('should return false if token is undefined', async () => {
-    const res = await checkForExistingUser(persons[2], undefined);
+    const res = await checkForExistingObject(persons[2], undefined);
     expect(res).to.be.false;
   });
 
