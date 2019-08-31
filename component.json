@@ -1,7 +1,8 @@
 {
   "title": "Snazzy Contacts",
   "description": "Snazzy Contacts OIH Adapter",
-  "docsUrl": "https://github.com/WiceDe/snazzy-adapter",
+  "docsUrl": "https://github.com/openintegrationhub/snazzy-adapter",
+  "buildType":"docker",
   "credentials": {
     "fields": {
       "username": {
