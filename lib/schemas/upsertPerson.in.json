@@ -1,17 +1,24 @@
 {
   "type": "object",
   "properties": {
-    "firstname": {
+    "uid": {
+      "type": "string",
+      "required": false,
+      "title": "Uid",
+      "note": "Person's uid",
+      "placeholder": "25mop1jxq2ss3x"
+    },
+    "firstName": {
       "type": "string",
       "required": true,
       "title": "First name",
       "note": "Person's last name",
       "placeholder": "Doe"
     },
-    "name": {
+    "lastName": {
       "type": "string",
       "required": true,
-      "title": "Name",
+      "title": "Last Name",
       "note": "Person's last name",
       "placeholder": "Doe"
     },
