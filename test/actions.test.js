@@ -1,6 +1,6 @@
 const { expect } = require('chai');
 const { getToken } = require('./../lib/utils/snazzy');
-const { upsertPerson } = require('./../lib/actions/upsertPerson.js');
+const upsertPerson = require('../lib/utils/helpers');
 
 const {
   resolve,
