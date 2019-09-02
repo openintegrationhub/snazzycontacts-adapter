@@ -34,9 +34,14 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
     getPersonNoToken;
   });
 
-  xit('should ...........', async () => {
-    const res = await resolve(persons[3], token);
-    console.log(res);
+  it('should resolve a conflict via CFM module', async () => {
+    const res = await resolve(persons[5], token);
+    expect(res.resolvedConflict.firstName).to.equal('Jane');
+    expect(res.resolvedConflict.lastName).to.equal('Brown');
+    expect(res.resolvedConflict.uid).to.equal('902jf1jxq2ss3x');
+    expect(res.resolvedConflict.gender).to.equal('female');
+    expect(res.resolvedConflict.addresses[0].city).to.equal('Cologne');
+    expect(res.resolvedConflict.categories[0].label).to.equal('Customer');
   });
 
   it('should resolve a conflict', async () => {
