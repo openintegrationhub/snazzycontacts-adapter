@@ -160,7 +160,58 @@ const persons = [{
   __v: 0,
   lastUpdateBy: null,
   lastUpdateById: null,
-
+},
+{
+  body: {
+    isUser: false,
+    firstName: 'Jane',
+    lastName: 'Brown',
+    photo: 'https://cdn3.iconfinder.com/data/icons/ultimate-social/150/43_yahoo-512.png',
+    uid: '902jf1jxq2ss3x',
+    gender: 'female',
+    jobTitle: '',
+    nickname: '',
+    displayName: '',
+    middleName: '',
+    salutation: '',
+    title: '',
+    birthday: '',
+    lastUpdate: '1562409837891',
+    updateEvent: '7q9m1jxreh6ir',
+    meta: {
+      role: 'USER',
+      user: '5d1f42743805f3001257392e',
+      tenant: '5d1f420d3805f3001257392d',
+      username: 'jane.brown@yahoo.com',
+    },
+    addresses: [{
+      street: 'Some Str.',
+      streetNumber: '456',
+      city: 'Cologne',
+    }],
+    contactData: [
+      {
+        type: 'phone',
+        value: '123456',
+        description: 'private',
+      },
+      {
+        type: 'fax',
+        value: '68790',
+        description: 'private',
+      },
+    ],
+    categories: [
+      {
+        uid: '25mop1jxq2pp3e',
+        label: 'Customer',
+      },
+    ],
+    relations: [],
+    __v: 0,
+    lastUpdateBy: null,
+    lastUpdateById: null,
+  },
 },
 ];
 
