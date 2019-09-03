@@ -24,7 +24,7 @@
     },
     "middleName": {
       "type": "string",
-      "required": true,
+      "required": false,
       "title": "Middle Name",
       "note": "Person's middle name",
       "placeholder": "Anthony"
