@@ -71,6 +71,13 @@
       "note": "Person's date of birth",
       "placeholder": "09.11.1980"
     },
+    "nickname": {
+      "type": "string",
+      "required": false,
+      "title": "Nickname",
+      "note": "Person's nickname",
+      "placeholder": "Johny"
+    },
     "private_street": {
       "type": "string",
       "required": false,
