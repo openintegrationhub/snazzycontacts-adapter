@@ -8,7 +8,6 @@ const {
   resolveConflict,
 } = require('./../lib/utils/resolver.js');
 
-const { upsertOrganization } = require('./../lib/actions/upsertOrganization.js');
 const {
   createPersonSuccessful,
   createPersonFailed,
@@ -117,7 +116,7 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
   });
 
   it('should create an organization', async () => {
-    const organization = await upsertOrganization(organizations[0], token);
+    const organization = await upsertObject(organizations[0], token, false, 'organization');
     expect(organization).to.not.be.empty;
     expect(organization).to.be.a('object');
     expect(organization.eventName).to.equal('OrganizationCreated');
@@ -129,10 +128,13 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
 
   it('should throw an exception if input does not match models', async () => {
     const input = {
-      name: 'SAP Ltd.',
-      logo: 'SAPLogo.png',
+      body: {
+        uid: 'dj277ajhd628',
+        name: 'SAP Ltd.',
+        logo: 'SAPLogo.png',
+      },
     };
-    const organization = await upsertOrganization(input, token);
+    const organization = await upsertObject(input, token, false, 'organization');
     expect(organization.statusCode).to.be.equal(400);
     expect(organization.error).to.be.equal('Data does not match schema!');
   });
