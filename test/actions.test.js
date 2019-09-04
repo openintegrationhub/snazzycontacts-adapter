@@ -91,6 +91,11 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
     expect(person.payload.lastName).to.equal('Doe');
   });
 
+  it('should not create a person if type is undefined', async () => {
+    const person = await upsertObject(persons[0], token, false);
+    expect(person).to.be.false;
+  });
+
   it('should update a person', async () => {
     const person = await upsertObject(persons[4], token, true, 'person');
     expect(person).to.not.be.empty;
