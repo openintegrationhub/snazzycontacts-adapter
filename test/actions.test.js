@@ -1,6 +1,6 @@
 const { expect } = require('chai');
 const { getToken } = require('./../lib/utils/snazzy');
-const upsertPerson = require('../lib/utils/helpers');
+const upsertObject = require('../lib/utils/helpers');
 
 const {
   resolve,
@@ -82,7 +82,7 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
   });
 
   it('should create a person', async () => {
-    const person = await upsertPerson(persons[0], token, false);
+    const person = await upsertObject(persons[0], token, false, 'person');
     expect(person).to.not.be.empty;
     expect(person).to.be.a('object');
     expect(person.eventName).to.equal('PersonCreated');
@@ -93,7 +93,7 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
   });
 
   it('should update a person', async () => {
-    const person = await upsertPerson(persons[4], token, true);
+    const person = await upsertObject(persons[4], token, true, 'person');
     expect(person).to.not.be.empty;
     expect(person).to.be.a('object');
     expect(person.eventName).to.equal('PersonLastNameUpdated');
@@ -111,7 +111,7 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
         lastName: 'Smith',
       },
     };
-    const person = await upsertPerson(input, token, false);
+    const person = await upsertObject(input, token, false, 'person');
     expect(person.statusCode).to.be.equal(400);
     expect(person.error).to.be.equal('Data does not match schema!');
   });
