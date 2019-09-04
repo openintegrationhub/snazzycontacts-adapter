@@ -34,7 +34,7 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
   });
 
   it('should resolve a conflict via CFM module', async () => {
-    const res = await resolve(persons[5], token);
+    const res = await resolve(persons[5], token, 'person');
     expect(res.resolvedConflict.firstName).to.equal('Jane');
     expect(res.resolvedConflict.lastName).to.equal('Brown');
     expect(res.resolvedConflict.uid).to.equal('902jf1jxq2ss3x');
@@ -58,7 +58,7 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
   });
 
   it('should check for an existing person', async () => {
-    const res = await checkForExistingObject(persons[0], token);
+    const res = await checkForExistingObject(persons[0], token, 'person');
     expect(res.firstName).to.equal('Yahoouser');
     expect(res.lastName).to.equal('Accountname');
     expect(res.uid).to.equal('25mop1jxq2ss3x');
@@ -71,12 +71,12 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
   });
 
   it('should return false if response is undefined', async () => {
-    const res = await checkForExistingObject(persons[1], token);
+    const res = await checkForExistingObject(persons[1], token, 'person');
     expect(res).to.be.false;
   });
 
   it('should return false if token is undefined', async () => {
-    const res = await checkForExistingObject(persons[2], undefined);
+    const res = await checkForExistingObject(persons[2], undefined, 'person');
     expect(res).to.be.false;
   });
 
