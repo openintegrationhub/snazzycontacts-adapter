@@ -14,8 +14,11 @@ const configOptions = {
 
 const organizations = [{
   body: {
+    uid: 'jd629kf72hkd88',
     name: 'Company Ltd.',
     email: 'info@company.com',
+    categories: [],
+    relations: [],
   },
 },
 {

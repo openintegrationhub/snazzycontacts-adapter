@@ -1,6 +1,6 @@
 const { expect } = require('chai');
 const { getToken } = require('./../lib/utils/snazzy');
-const upsertPerson = require('../lib/utils/helpers');
+const upsertObject = require('../lib/utils/helpers');
 
 const {
   resolve,
@@ -8,7 +8,6 @@ const {
   resolveConflict,
 } = require('./../lib/utils/resolver.js');
 
-const { upsertOrganization } = require('./../lib/actions/upsertOrganization.js');
 const {
   createPersonSuccessful,
   createPersonFailed,
@@ -35,7 +34,7 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
   });
 
   it('should resolve a conflict via CFM module', async () => {
-    const res = await resolve(persons[5], token);
+    const res = await resolve(persons[5], token, 'person');
     expect(res.resolvedConflict.firstName).to.equal('Jane');
     expect(res.resolvedConflict.lastName).to.equal('Brown');
     expect(res.resolvedConflict.uid).to.equal('902jf1jxq2ss3x');
@@ -59,7 +58,7 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
   });
 
   it('should check for an existing person', async () => {
-    const res = await checkForExistingObject(persons[0], token);
+    const res = await checkForExistingObject(persons[0], token, 'person');
     expect(res.firstName).to.equal('Yahoouser');
     expect(res.lastName).to.equal('Accountname');
     expect(res.uid).to.equal('25mop1jxq2ss3x');
@@ -72,17 +71,17 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
   });
 
   it('should return false if response is undefined', async () => {
-    const res = await checkForExistingObject(persons[1], token);
+    const res = await checkForExistingObject(persons[1], token, 'person');
     expect(res).to.be.false;
   });
 
   it('should return false if token is undefined', async () => {
-    const res = await checkForExistingObject(persons[2], undefined);
+    const res = await checkForExistingObject(persons[2], undefined, 'person');
     expect(res).to.be.false;
   });
 
   it('should create a person', async () => {
-    const person = await upsertPerson(persons[0], token, false);
+    const person = await upsertObject(persons[0], token, false, 'person');
     expect(person).to.not.be.empty;
     expect(person).to.be.a('object');
     expect(person.eventName).to.equal('PersonCreated');
@@ -92,8 +91,13 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
     expect(person.payload.lastName).to.equal('Doe');
   });
 
+  it('should not create a person if type is undefined', async () => {
+    const person = await upsertObject(persons[0], token, false);
+    expect(person).to.be.false;
+  });
+
   it('should update a person', async () => {
-    const person = await upsertPerson(persons[4], token, true);
+    const person = await upsertObject(persons[4], token, true, 'person');
     expect(person).to.not.be.empty;
     expect(person).to.be.a('object');
     expect(person.eventName).to.equal('PersonLastNameUpdated');
@@ -111,13 +115,13 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
         lastName: 'Smith',
       },
     };
-    const person = await upsertPerson(input, token, false);
+    const person = await upsertObject(input, token, false, 'person');
     expect(person.statusCode).to.be.equal(400);
     expect(person.error).to.be.equal('Data does not match schema!');
   });
 
   it('should create an organization', async () => {
-    const organization = await upsertOrganization(organizations[0], token);
+    const organization = await upsertObject(organizations[0], token, false, 'organization');
     expect(organization).to.not.be.empty;
     expect(organization).to.be.a('object');
     expect(organization.eventName).to.equal('OrganizationCreated');
@@ -129,10 +133,13 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
 
   it('should throw an exception if input does not match models', async () => {
     const input = {
-      name: 'SAP Ltd.',
-      logo: 'SAPLogo.png',
+      body: {
+        uid: 'dj277ajhd628',
+        name: 'SAP Ltd.',
+        logo: 'SAPLogo.png',
+      },
     };
-    const organization = await upsertOrganization(input, token);
+    const organization = await upsertObject(input, token, false, 'organization');
     expect(organization.statusCode).to.be.equal(400);
     expect(organization.error).to.be.equal('Data does not match schema!');
   });
