@@ -2,7 +2,7 @@
   "title": "Snazzy Contacts",
   "description": "Snazzy Contacts OIH Adapter",
   "docsUrl": "https://github.com/openintegrationhub/snazzy-adapter",
-  "buildType":"docker",
+  "buildType": "docker",
   "credentials": {
     "fields": {
       "username": {
@@ -53,8 +53,7 @@
       "main": "./lib/actions/upsertOrganization.js",
       "title": "Upsert an organization  in Snazzy Contacts",
       "metadata": {
-        "in": "./lib/schemas/upsertPerson.in.json",
-        "out": "./lib/schemas/upsertPerson.out.json"
+        "in": "./lib/schemas/upsertOrganization.in.json"
       }
     }
   }
