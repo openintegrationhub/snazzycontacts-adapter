@@ -22,7 +22,7 @@
     "@wice-devs/cfm": "^1.0.6",
     "co": "4.6.0",
     "elasticio-node": "0.0.9",
-    "elasticio-sailor-nodejs": "2.2.1",
+    "elasticio-sailor-nodejs": "2.4.2",
     "moment": "^2.24.0",
     "q": "^1.5.1",
     "request": "^2.88.0",
