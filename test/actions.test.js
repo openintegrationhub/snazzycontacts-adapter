@@ -97,7 +97,7 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
   });
 
   it('should update a person', async () => {
-    const person = await upsertObject(persons[4], token, true, 'person');
+    const person = await upsertObject(persons[4], token, true, 'person', persons[4].body.meta);
     expect(person).to.not.be.empty;
     expect(person).to.be.a('object');
     expect(person.eventName).to.equal('PersonLastNameUpdated');
