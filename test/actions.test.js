@@ -44,7 +44,7 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
   });
 
   it('should resolve a conflict', async () => {
-    const res = resolveConflict(persons[3], persons[4]);
+    const res = resolveConflict(persons[3], persons[6]);
     expect(res.firstName).to.equal('Mark');
     expect(res.lastName).to.equal('Smith');
     expect(res.uid).to.equal('25mop1jxq2ss3x');
