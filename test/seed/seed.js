@@ -37,30 +37,22 @@ const organizations = [{
 
 const persons = [{
   body: {
-    meta: {
-      uid: '25mop1jxq2ss3x',
-      oihUidEncrypted: '',
-    },
-    data: {
-      lastName: 'Brown',
-      firstName: 'Adam',
-      categories: [],
-      relations: [],
-    },
+    uid: '25mop1jxq2ss3x',
+    oihUidEncrypted: '',
+    lastName: 'Brown',
+    firstName: 'Adam',
+    categories: [],
+    relations: [],
   },
 },
 {
   body: {
-    meta: {
-      uid: '123asd',
-      oihUidEncrypted: '',
-    },
-    data: {
-      lastName: 'Doe',
-      firstName: 'John',
-      categories: [],
-      relations: [],
-    },
+    uid: '123asd',
+    oihUidEncrypted: '',
+    lastName: 'Doe',
+    firstName: 'John',
+    categories: [],
+    relations: [],
   },
 },
 {
@@ -176,60 +168,56 @@ const persons = [{
 },
 {
   body: {
-    meta: {
-      uid: '902jf1jxq2ss3x',
-      oihUidEncrypted: '',
-    },
-    data: {
-      isUser: false,
-      firstName: 'Jane',
-      lastName: 'Brown',
-      photo: 'https://cdn3.iconfinder.com/data/icons/ultimate-social/150/43_yahoo-512.png',
+    uid: '902jf1jxq2ss3x',
+    oihUidEncrypted: '',
+    isUser: false,
+    firstName: 'Jane',
+    lastName: 'Brown',
+    photo: 'https://cdn3.iconfinder.com/data/icons/ultimate-social/150/43_yahoo-512.png',
 
-      gender: 'female',
-      jobTitle: '',
-      nickname: '',
-      displayName: '',
-      middleName: '',
-      salutation: '',
-      title: '',
-      birthday: '',
-      lastUpdate: '1562409837891',
-      updateEvent: '7q9m1jxreh6ir',
-      meta: {
-        role: 'USER',
-        user: '5d1f42743805f3001257392e',
-        tenant: '5d1f420d3805f3001257392d',
-        username: 'jane.brown@yahoo.com',
-      },
-      addresses: [{
-        street: 'Some Str.',
-        streetNumber: '456',
-        city: 'Cologne',
-      }],
-      contactData: [
-        {
-          type: 'phone',
-          value: '123456',
-          description: 'private',
-        },
-        {
-          type: 'fax',
-          value: '68790',
-          description: 'private',
-        },
-      ],
-      categories: [
-        {
-          uid: '25mop1jxq2pp3e',
-          label: 'Customer',
-        },
-      ],
-      relations: [],
-      __v: 0,
-      lastUpdateBy: null,
-      lastUpdateById: null,
+    gender: 'female',
+    jobTitle: '',
+    nickname: '',
+    displayName: '',
+    middleName: '',
+    salutation: '',
+    title: '',
+    birthday: '',
+    lastUpdate: '1562409837891',
+    updateEvent: '7q9m1jxreh6ir',
+    meta: {
+      role: 'USER',
+      user: '5d1f42743805f3001257392e',
+      tenant: '5d1f420d3805f3001257392d',
+      username: 'jane.brown@yahoo.com',
     },
+    addresses: [{
+      street: 'Some Str.',
+      streetNumber: '456',
+      city: 'Cologne',
+    }],
+    contactData: [
+      {
+        type: 'phone',
+        value: '123456',
+        description: 'private',
+      },
+      {
+        type: 'fax',
+        value: '68790',
+        description: 'private',
+      },
+    ],
+    categories: [
+      {
+        uid: '25mop1jxq2pp3e',
+        label: 'Customer',
+      },
+    ],
+    relations: [],
+    __v: 0,
+    lastUpdateBy: null,
+    lastUpdateById: null,
   },
 },
 ];
