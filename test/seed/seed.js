@@ -14,11 +14,15 @@ const configOptions = {
 
 const organizations = [{
   body: {
-    uid: 'jd629kf72hkd88',
-    name: 'Company Ltd.',
-    email: 'info@company.com',
-    categories: [],
-    relations: [],
+    meta: {
+      uid: 'jd629kf72hkd88',
+    },
+    data: {
+      name: 'Company Ltd.',
+      email: 'info@company.com',
+      categories: [],
+      relations: [],
+    },
   },
 },
 {
@@ -37,30 +41,42 @@ const organizations = [{
 
 const persons = [{
   body: {
-    uid: '25mop1jxq2ss3x',
-    oihUidEncrypted: '',
-    lastName: 'Brown',
-    firstName: 'Adam',
-    categories: [],
-    relations: [],
+    meta: {
+      uid: '25mop1jxq2ss3x',
+    },
+    data: {
+      oihUidEncrypted: '',
+      lastName: 'Brown',
+      firstName: 'Adam',
+      categories: [],
+      relations: [],
+    },
   },
 },
 {
   body: {
-    uid: '123asd',
-    oihUidEncrypted: '',
-    lastName: 'Doe',
-    firstName: 'John',
-    categories: [],
-    relations: [],
+    meta: {
+      uid: '123asd',
+    },
+    data: {
+      oihUidEncrypted: '',
+      lastName: 'Doe',
+      firstName: 'John',
+      categories: [],
+      relations: [],
+    },
   },
 },
 {
   body: {
-    uid: '98hkp1jxq2ss3x',
-    lastName: 'Kolarov',
-    firstName: 'Sebastian',
-    email: 'kolarov@mail.com',
+    meta: {
+      uid: '98hkp1jxq2ss3x',
+    },
+    data: {
+      lastName: 'Kolarov',
+      firstName: 'Sebastian',
+      email: 'kolarov@mail.com',
+    },
   },
 }, {
   body: {
@@ -168,57 +184,61 @@ const persons = [{
 },
 {
   body: {
-    uid: '902jf1jxq2ss3x',
-    oihUidEncrypted: '',
-    isUser: false,
-    firstName: 'Jane',
-    lastName: 'Brown',
-    photo: 'https://cdn3.iconfinder.com/data/icons/ultimate-social/150/43_yahoo-512.png',
-
-    gender: 'female',
-    jobTitle: '',
-    nickname: '',
-    displayName: '',
-    middleName: '',
-    salutation: '',
-    title: '',
-    birthday: '',
-    lastUpdate: '1562409837891',
-    updateEvent: '7q9m1jxreh6ir',
     meta: {
-      role: 'USER',
-      user: '5d1f42743805f3001257392e',
-      tenant: '5d1f420d3805f3001257392d',
-      username: 'jane.brown@yahoo.com',
+      uid: '902jf1jxq2ss3x',
     },
-    addresses: [{
-      street: 'Some Str.',
-      streetNumber: '456',
-      city: 'Cologne',
-    }],
-    contactData: [
-      {
-        type: 'phone',
-        value: '123456',
-        description: 'private',
+    data: {
+      oihUidEncrypted: '',
+      isUser: false,
+      firstName: 'Jane',
+      lastName: 'Brown',
+      photo: 'https://cdn3.iconfinder.com/data/icons/ultimate-social/150/43_yahoo-512.png',
+      gender: 'female',
+      jobTitle: '',
+      nickname: '',
+      displayName: '',
+      middleName: '',
+      salutation: '',
+      title: '',
+      birthday: '',
+      lastUpdate: '1562409837891',
+      updateEvent: '7q9m1jxreh6ir',
+      meta: {
+        role: 'USER',
+        user: '5d1f42743805f3001257392e',
+        tenant: '5d1f420d3805f3001257392d',
+        username: 'jane.brown@yahoo.com',
       },
-      {
-        type: 'fax',
-        value: '68790',
-        description: 'private',
-      },
-    ],
-    categories: [
-      {
-        uid: '25mop1jxq2pp3e',
-        label: 'Customer',
-      },
-    ],
-    relations: [],
-    __v: 0,
-    lastUpdateBy: null,
-    lastUpdateById: null,
+      addresses: [{
+        street: 'Some Str.',
+        streetNumber: '456',
+        city: 'Cologne',
+      }],
+      contactData: [
+        {
+          type: 'phone',
+          value: '123456',
+          description: 'private',
+        },
+        {
+          type: 'fax',
+          value: '68790',
+          description: 'private',
+        },
+      ],
+      categories: [
+        {
+          uid: '25mop1jxq2pp3e',
+          label: 'Customer',
+        },
+      ],
+      relations: [],
+      __v: 0,
+      lastUpdateBy: null,
+      lastUpdateById: null,
+    },
   },
+
 },
 ];
 

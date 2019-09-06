@@ -110,9 +110,14 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
   it('should throw an exception if input does not match models', async () => {
     const input = {
       body: {
-        uid: '5h4k3j23211',
-        firstName: 'Jane',
-        lastName: 'Smith',
+        meta: {
+          uid: '5h4k3j23211',
+        },
+        data: {
+          uid: '5h4k3j23211',
+          firstName: 'Jane',
+          lastName: 'Smith',
+        },
       },
     };
     const person = await upsertObject(input, token, false, 'person');
@@ -134,9 +139,13 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
   it('should throw an exception if input does not match models', async () => {
     const input = {
       body: {
-        uid: 'dj277ajhd628',
-        name: 'SAP Ltd.',
-        logo: 'SAPLogo.png',
+        meta: {
+          uid: 'dj277ajhd628',
+        },
+        data: {
+          name: 'SAP Ltd.',
+          logo: 'SAPLogo.png',
+        },
       },
     };
     const organization = await upsertObject(input, token, false, 'organization');
