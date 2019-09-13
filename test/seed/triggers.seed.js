@@ -347,6 +347,9 @@ const getOrganizationsSuccessful = nock('https://api.snazzycontacts.com/api/orga
         }],
       _v: '1',
     }],
+    meta: {
+      count: 10,
+    },
   });
 
 const getOrganizationsEmpty = nock('https://api.snazzycontacts.com/api/organization')

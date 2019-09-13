@@ -48,26 +48,26 @@ describe('Triggers - getPersons & getOrganizations', () => {
       lastUpdated: (new Date(0)).getTime(),
     };
     const organizations = await getOrganizations(token, snapshot);
-    expect(organizations).to.not.be.empty;
-    expect(organizations).to.be.a('array');
-    expect(organizations).to.have.length(2);
-    expect(organizations[1].name).to.equal('Company Ltd');
-    expect(organizations[1].logo).to.equal('Logo');
-    expect(organizations[1].uid).to.equal('3ghj7ajmg24hmh');
-    expect(organizations[1].lastUpdate).to.equal('1553776079568');
-    expect(organizations[1].addresses[0].street).to.equal('Main Str.');
-    expect(organizations[1].addresses[0].streetNumber).to.equal('320');
-    expect(organizations[1].addresses[0].city).to.equal('New York City');
-    expect(organizations[1].contactData).to.be.a('array');
-    expect(organizations[1].contactData).to.be.empty;
-    expect(organizations[1].relations[0].partner.uid).to.equal('3gbdq1jtsry748');
-    expect(organizations[1].relations[0].partner.kind).to.equal('Person');
-    expect(organizations[1].relations[0].partner.name).to.equal('Jenk Ins');
-    expect(organizations[1].relations[0].uids).to.be.a('array');
-    expect(organizations[1].relations[0].uids[0]).to.equal('3gbdq1jtss29zz');
-    expect(organizations[1].relations[0].uids[1]).to.equal('3gbdq1jtsry748');
-    expect(organizations[1].relations[0].label).to.equal('Employee');
-    expect(organizations[1].relations[0].type).to.equal('OrganizationToPerson');
+    expect(organizations.result).to.not.be.empty;
+    expect(organizations.result).to.be.a('array');
+    expect(organizations.result).to.have.length(2);
+    expect(organizations.result[1].name).to.equal('Company Ltd');
+    expect(organizations.result[1].logo).to.equal('Logo');
+    expect(organizations.result[1].uid).to.equal('3ghj7ajmg24hmh');
+    expect(organizations.result[1].lastUpdate).to.equal('1553776079568');
+    expect(organizations.result[1].addresses[0].street).to.equal('Main Str.');
+    expect(organizations.result[1].addresses[0].streetNumber).to.equal('320');
+    expect(organizations.result[1].addresses[0].city).to.equal('New York City');
+    expect(organizations.result[1].contactData).to.be.a('array');
+    expect(organizations.result[1].contactData).to.be.empty;
+    expect(organizations.result[1].relations[0].partner.uid).to.equal('3gbdq1jtsry748');
+    expect(organizations.result[1].relations[0].partner.kind).to.equal('Person');
+    expect(organizations.result[1].relations[0].partner.name).to.equal('Jenk Ins');
+    expect(organizations.result[1].relations[0].uids).to.be.a('array');
+    expect(organizations.result[1].relations[0].uids[0]).to.equal('3gbdq1jtss29zz');
+    expect(organizations.result[1].relations[0].uids[1]).to.equal('3gbdq1jtsry748');
+    expect(organizations.result[1].relations[0].label).to.equal('Employee');
+    expect(organizations.result[1].relations[0].type).to.equal('OrganizationToPerson');
   });
 
   it('should throw an exception if no organizations were found', async () => {
