@@ -1,8 +1,8 @@
+/* eslint no-unused-expressions: "off" */
+
 const { expect } = require('chai');
-const { getToken } = require('./../lib/utils/snazzy');
 const { getPersons } = require('../lib/triggers/getPersonsPolling');
 const { getOrganizations } = require('../lib/triggers/getOrganizationsPolling');
-// const { configOptions } = require('./seed/seed');
 const {
   getPersonsSuccessful, getPersonsEmpty, getOrganizationsSuccessful, getOrganizationsEmpty,
 } = require('./seed/triggers.seed');
@@ -10,7 +10,6 @@ const {
 describe('Triggers - getPersons & getOrganizations', () => {
   let token;
   before(async () => {
-    // token = await getToken(configOptions);
     getPersonsSuccessful;
     getPersonsEmpty;
     getOrganizationsSuccessful;

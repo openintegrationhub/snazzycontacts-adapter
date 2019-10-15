@@ -1,3 +1,5 @@
+/* eslint no-unused-expressions: "off" */
+
 const { expect } = require('chai');
 const { getToken } = require('./../lib/utils/snazzy');
 const { configOptions } = require('./seed/seed');
