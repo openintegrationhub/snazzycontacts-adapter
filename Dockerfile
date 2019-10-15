@@ -21,4 +21,4 @@ RUN chown -R node:node .
 
 USER node
 
-ENTRYPOINT ["node", "./node_modules/elasticio-sailor-nodejs/run.js"]
+ENTRYPOINT ["npm", "start"]
