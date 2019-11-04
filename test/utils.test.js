@@ -14,7 +14,7 @@ describe('Authorization process', () => {
 
   it('should get the token after successful authorization', async () => {
     const token = await getToken(configOptions);
-    expect(token).to.equal('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1YmM1ZDcwY2U2NzNkNjAwMTA3MGJhOWYiLCJ1c2VybmFtZSI6ImFkbWluQGV4YW1wbGUuY29tIiwicm9sZSI6IkFETUlOIiwibWVtYmVyc2hpcHMiOlt7InJvbGUiOiJURU5BTlRfR1VFU1QiLCJfaWQiOiIxMjM0NSJ9XSwiaWF0IjoxNTU1OTE3Mzc0LCJleHAiOjE1NTU5MjgxNzQsImF1ZCI6ImV4YW1wbGUuY29tIiwiaXNzIjoiaHR0cHM6Ly8xMjcuMC4wLjE6MzA5OSJ9.u1jgiQuDwd33PkjNyn-0MDLA2V627DbzAQQmFaRHR9s');
+    expect(token).to.equal('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9');
     expect(token).to.not.be.empty;
     expect(token).to.be.a('string');
   });
