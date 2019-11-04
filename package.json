@@ -22,7 +22,7 @@
     "test-watch": "nodemon --exec \"npm test \""
   },
   "engines": {
-    "node": "8.6.0",
+    "node": "8.16.2",
     "npm": ">=5.4"
   },
   "dependencies": {
