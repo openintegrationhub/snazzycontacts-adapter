@@ -15,7 +15,7 @@ const configOptions = {
 const organizations = [{
   body: {
     meta: {
-      uid: 'jd629kf72hkd88',
+      recordUid: 'jd629kf72hkd88',
     },
     data: {
       name: 'Company Ltd.',
@@ -42,7 +42,7 @@ const organizations = [{
 const persons = [{
   body: {
     meta: {
-      uid: '25mop1jxq2ss3x',
+      recordUid: '25mop1jxq2ss3x',
     },
     data: {
       oihUidEncrypted: '',
@@ -56,7 +56,7 @@ const persons = [{
 {
   body: {
     meta: {
-      uid: '123asd',
+      recordUid: '123asd',
     },
     data: {
       oihUidEncrypted: '',
@@ -70,7 +70,7 @@ const persons = [{
 {
   body: {
     meta: {
-      uid: '98hkp1jxq2ss3x',
+      recordUid: '98hkp1jxq2ss3x',
     },
     data: {
       lastName: 'Kolarov',
@@ -82,7 +82,7 @@ const persons = [{
 {
   body: {
     meta: {
-      uid: '25mop1jxq2ss3x',
+      recordUid: '25mop1jxq2ss3x',
     },
     data: {
       _id: '5d1f429dbbe76eeb57af028e',
@@ -140,7 +140,7 @@ const persons = [{
 {
   body: {
     meta: {
-      uid: '25mop1jxq2ss3x',
+      recordUid: '25mop1jxq2ss3x',
     },
     data: {
       id: '5d1f429dbbe76eeb57af028e',
@@ -198,7 +198,7 @@ const persons = [{
 {
   body: {
     meta: {
-      uid: '902jf1jxq2ss3x',
+      recordUid: '902jf1jxq2ss3x',
     },
     data: {
       oihUidEncrypted: '',
