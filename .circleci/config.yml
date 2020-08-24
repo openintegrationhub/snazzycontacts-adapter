@@ -4,7 +4,7 @@ executors:
     environment:
       IMAGE_NAME: openintegrationhub/snazzy-adapter
     docker:
-      - image: circleci/node:12.11-stretch
+      - image: circleci/node:12-stretch
 jobs:
   build:
     executor: docker-publisher
