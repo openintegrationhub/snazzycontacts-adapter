@@ -26,7 +26,7 @@
     "npm": ">=5.4"
   },
   "dependencies": {
-    "@openintegrationhub/ferryman": "^1.0.1",
+    "@openintegrationhub/ferryman": "^1.0.4",
     "@wice-devs/cfm": "^1.0.6",
     "co": "4.6.0",
     "moment": "^2.24.0",
