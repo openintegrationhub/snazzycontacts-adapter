@@ -1,4 +1,4 @@
-# snazzy-adapter
+# Snazzy-Adapter
 
 [Snazzy Contacts](https://snazzycontacts.com) is a smart contact management software for controlling, organizing and managing your contacts data. With [Snazzy Contacts](https://snazzycontacts.com) you could manage your entire team contacts(contacts and organizations) and work flexibly together with your colleagues. You are able to maintain your addresses on all devices from everywhere.
 
@@ -10,7 +10,7 @@ Before you can use the adapter you **must be a registered Snazzy Contacts user**
 > Any attempt to reach [Snazzy Contacts](https://snazzycontacts.com) endpoints without registration will not be successful!
 
 ## Authorization
-Each request to Snazzy Contacts API requires an authorization. You have to pass your token as a `Bearer` token in headers.
+Each request to Snazzy Contacts API requires an authorization. To do so, pass either a generated apiKey or your username and password through the config.
 
 
 ## Actions and triggers
