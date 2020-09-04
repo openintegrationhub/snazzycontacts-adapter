@@ -163,7 +163,7 @@ const getPerson = nock('https://api.snazzycontacts.com/api/person/25mop1jxq2ss3x
     lastUpdateById: null,
   });
 
-const updatePerson = nock('https://api.snazzycontacts.com/api/person/25mop1jxq2ss3x')
+const updatePerson = nock('https://api.snazzycontacts.com/api/operation/person')
   .put('')
   .reply(200, {
     eventId: 'o0d48u31jzxuwspc',
