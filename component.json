@@ -90,6 +90,6 @@
         "in": "./lib/schemas/upsertPerson.in.json",
         "out": "./lib/schemas/upsertPerson.out.json"
       }
-    },
+    }
   }
 }
