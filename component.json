@@ -82,6 +82,14 @@
       "metadata": {
         "in": "./lib/schemas/upsertOrganization.in.json"
       }
-    }
+    },
+    "upsertPersonOrOrganization": {
+      "title": "Upsert a person in Snazzy Contacts",
+      "main": "./lib/actions/upsertPersonOrOrganization.js",
+      "metadata": {
+        "in": "./lib/schemas/upsertPerson.in.json",
+        "out": "./lib/schemas/upsertPerson.out.json"
+      }
+    },
   }
 }
