@@ -1,7 +1,10 @@
 const nock = require('nock');
 
-const createPersonSuccessful = nock('https://api.snazzycontacts.com/api/person')
+const createPersonSuccessful = nock('https://api.snazzycontacts.com/api/operation')
   .post('')
+  .query({
+    type: 'person',
+  })
   .reply(200, {
     eventId: 'yj5o81jvazco6v',
     eventName: 'PersonCreated',
@@ -28,8 +31,11 @@ const createPersonSuccessful = nock('https://api.snazzycontacts.com/api/person')
     },
   });
 
-const createPersonFailed = nock('https://api.snazzycontacts.com/api/person')
+const createPersonFailed = nock('https://api.snazzycontacts.com/api/operation')
   .post('')
+  .query({
+    type: 'person',
+  })
   .reply(400, 'Data does not match schema!');
 
 const deletePersonSuccessful = nock('https://api.snazzycontacts.com/api/person/8sjwp1jvdhswq2')
@@ -58,8 +64,11 @@ const deletePersonNotFound = nock('https://api.snazzycontacts.com/api/person/111
   .delete('')
   .reply(204);
 
-const createOrganizationSuccessful = nock('https://api.snazzycontacts.com/api/organization')
+const createOrganizationSuccessful = nock('https://api.snazzycontacts.com/api/operation')
   .post('')
+  .query({
+    type: 'organization',
+  })
   .reply(200, {
     eventId: '3gbds1jvduhqiw',
     eventName: 'OrganizationCreated',
@@ -94,8 +103,11 @@ const createOrganizationSuccessful = nock('https://api.snazzycontacts.com/api/or
     },
   });
 
-const createOrganizationFailed = nock('https://api.snazzycontacts.com/api/organization')
+const createOrganizationFailed = nock('https://api.snazzycontacts.com/api/operation')
   .post('')
+  .query({
+    type: 'organization',
+  })
   .reply(400, 'Data does not match schema!');
 
 const deleteOrganizationSuccessful = nock('https://api.snazzycontacts.com/api/organization/2jkwerjvdhswq2')
@@ -165,6 +177,9 @@ const getPerson = nock('https://api.snazzycontacts.com/api/person/25mop1jxq2ss3x
 
 const updatePerson = nock('https://api.snazzycontacts.com/api/operation/person')
   .put('')
+  .query({
+    type: 'person',
+  })
   .reply(200, {
     eventId: 'o0d48u31jzxuwspc',
     eventName: 'PersonLastNameUpdated',
