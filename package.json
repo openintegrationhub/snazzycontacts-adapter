@@ -26,11 +26,8 @@
     "npm": ">=5.4"
   },
   "dependencies": {
-    "@openintegrationhub/ferryman": "^1.1.2",
+    "@openintegrationhub/ferryman": "^1.1.5",
     "@wice-devs/cfm": "^1.0.6",
-    "co": "4.6.0",
-    "moment": "^2.24.0",
-    "q": "^1.5.1",
     "request": "^2.88.0",
     "request-promise": "4.1.1",
     "uuid": "^8.2.0"
