@@ -1,7 +1,7 @@
 /* eslint no-unused-expressions: "off" */
 
 const { expect } = require('chai');
-const { getEntries } = require('../lib/triggers/getPersonsPolling');
+const { getEntries } = require('../lib/utils/helpers');
 const {
   getPersonsSuccessful, getPersonsEmpty, getOrganizationsSuccessful, getOrganizationsEmpty,
 } = require('./seed/triggers.seed');
@@ -19,7 +19,7 @@ describe('Triggers - getPersons & getOrganizations', () => {
     const snapshot = {
       lastUpdated: (new Date(0)).getTime(),
     };
-    const persons = await getEntries(token, snapshot, null, 'person');
+    const persons = await getEntries(token, snapshot, 'person');
     expect(persons.result).to.not.be.empty;
     expect(persons.result).to.be.a('array');
     expect(persons.result).to.have.length(2);
@@ -37,7 +37,7 @@ describe('Triggers - getPersons & getOrganizations', () => {
     const snapshot = {
       lastUpdated: 0,
     };
-    const persons = await getEntries(token, snapshot, null, 'person');
+    const persons = await getEntries(token, snapshot, 'person');
     expect(persons).to.equal('Expected records array.');
   });
 
@@ -45,7 +45,7 @@ describe('Triggers - getPersons & getOrganizations', () => {
     const snapshot = {
       lastUpdated: (new Date(0)).getTime(),
     };
-    const organizations = await getEntries(token, snapshot, null, 'organization');
+    const organizations = await getEntries(token, snapshot, 'organization');
     expect(organizations.result).to.not.be.empty;
     expect(organizations.result).to.be.a('array');
     expect(organizations.result).to.have.length(2);
@@ -72,7 +72,7 @@ describe('Triggers - getPersons & getOrganizations', () => {
     const snapshot = {
       lastUpdated: 0,
     };
-    const organizations = await getEntries(token, snapshot, null, 'organization');
+    const organizations = await getEntries(token, snapshot, 'organization');
     expect(organizations).to.equal('Expected records array.');
   });
 });
