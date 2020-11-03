@@ -77,7 +77,7 @@ describe('Triggers - getPersons & getOrganizations', () => {
     expect(organizations).to.equal('Expected records array.');
   });
 
-  it.only('should search for persons', async () => {
+  it('should search for persons', async () => {
     nock('https://api.snazzycontacts.com/api/search')
       .get('')
       .query(
@@ -252,7 +252,7 @@ describe('Triggers - getPersons & getOrganizations', () => {
     expect(persons.result[1].addresses).to.have.lengthOf(1);
   });
 
-  it.only('should search for organizations', async () => {
+  it('should search for organizations', async () => {
     nock('https://api.snazzycontacts.com/api/search')
       .get('')
       .query(
