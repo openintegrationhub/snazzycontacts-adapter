@@ -1,6 +1,6 @@
 {
   "name": "@oih/snazzycontacts-adapter",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "OIH Adapter for Snazzy Contacts",
   "homepage": "https://snazzycontacts.com/",
   "author": {
@@ -26,7 +26,7 @@
     "npm": ">=5.4"
   },
   "dependencies": {
-    "@openintegrationhub/ferryman": "1.4.0",
+    "@openintegrationhub/ferryman": "1.4.2",
     "@wice-devs/cfm": "^1.0.6",
     "request": "^2.88.0",
     "request-promise": "4.1.1"
