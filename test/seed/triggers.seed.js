@@ -12,6 +12,7 @@ const getPersonsSuccessful = nock('https://api.snazzycontacts.com/api/person?pag
         photo: 'www.photo.com/john',
         uid: '3gbdq1jtsvxjot',
         lastUpdate: '1555486295456',
+        updatedAt: '2020-03-01T08:52:59.105Z',
         updateEvent: '3gbdk1jukwdmzk',
         meta: {
           role: 'USER',
@@ -125,6 +126,7 @@ const getPersonsSuccessful = nock('https://api.snazzycontacts.com/api/person?pag
         lastName: 'Hobbs',
         photo: '',
         lastUpdate: '1555592465662',
+        updatedAt: '2020-03-02T08:52:59.105Z',
         updateEvent: '3gbdk1jumnl8fx',
         meta: {
           role: 'USER',
@@ -286,6 +288,7 @@ const getOrganizationsSuccessful = nock('https://api.snazzycontacts.com/api/orga
       logo: 'Logo',
       uid: '3gbbj1jmg24hmh',
       lastUpdate: '1553776079199',
+      updatedAt: '2020-03-01T08:52:59.105Z',
       addresses: [
         {
           uid: '3gbbu1jmkewc87',
@@ -310,6 +313,7 @@ const getOrganizationsSuccessful = nock('https://api.snazzycontacts.com/api/orga
       logo: 'Logo',
       uid: '3ghj7ajmg24hmh',
       lastUpdate: '1553776079568',
+      updatedAt: '2020-03-02T08:52:59.105Z',
       addresses: [
         {
           uid: '59po91jmkewc87',

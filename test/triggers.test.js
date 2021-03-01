@@ -21,6 +21,7 @@ describe('Triggers - getPersons & getOrganizations', () => {
       lastUpdated: (new Date(0)).getTime(),
     };
     const persons = await getEntries(token, snapshot, 'person');
+
     expect(persons.result).to.not.be.empty;
     expect(persons.result).to.be.a('array');
     expect(persons.result).to.have.length(2);
