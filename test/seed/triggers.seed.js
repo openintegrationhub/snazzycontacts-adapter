@@ -360,7 +360,6 @@ const getOrganizationsEmpty = nock('https://api.snazzycontacts.com/api/organizat
   .get('')
   .reply(204, {});
 
-
 module.exports = {
   getPersonsSuccessful,
   getPersonsEmpty,
