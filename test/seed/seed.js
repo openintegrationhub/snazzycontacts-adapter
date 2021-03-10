@@ -291,6 +291,7 @@ const persons = [{
 },
 ];
 
+
 module.exports = {
   options,
   configOptions,
