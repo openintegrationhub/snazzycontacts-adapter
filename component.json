@@ -1,70 +1,70 @@
 {
-  "title": "Snazzy Contacts",
-  "description": "Snazzy Contacts OIH Adapter",
-  "docsUrl": "https://github.com/openintegrationhub/snazzy-adapter",
-  "buildType": "docker",
-  "credentials": {
-    "fields": {
-      "username": {
-        "label": "Your username",
-        "required": true,
-        "viewClass": "TextFieldView",
-        "note": "Use your username registerd in <b>Snazzy Contacts</b>",
-        "placeholder": "youremail@mail.com"
+   "title":"Snazzy Contacts",
+   "description":"Snazzy Contacts OIH Adapter",
+   "docsUrl":"https://github.com/openintegrationhub/snazzy-adapter",
+   "buildType":"docker",
+   "credentials":{
+      "fields":{
+         "username":{
+            "label":"Your username",
+            "required":true,
+            "viewClass":"TextFieldView",
+            "note":"Use your username registerd in <b>Snazzy Contacts</b>",
+            "placeholder":"youremail@mail.com"
+         },
+         "password":{
+            "label":"Your password",
+            "required":true,
+            "viewClass":"PasswordFieldView",
+            "note":"Use your password for <b>Snazzy Contacts</b>"
+         }
+      }
+   },
+   "triggers":{
+      "getPersonsPolling":{
+         "title":"Fetch new and updated persons(getPersons - Polling)",
+         "description":"Get Snazzy Contacts persons which have recently been modified or created",
+         "type":"polling",
+         "main":"./lib/triggers/getPersonsPolling.js",
+         "metadata":{
+            "in":"./lib/schemas/getPersons.in.json",
+            "out":"./lib/schemas/getPersons.out.json"
+         }
       },
-      "password": {
-        "label": "Your password",
-        "required": true,
-        "viewClass": "PasswordFieldView",
-        "note": "Use your password for <b>Snazzy Contacts</b>"
+      "getOrganizationsPolling":{
+         "title":"Fetch new and updated organizations(getOrganizations- Polling)",
+         "description":"Get Snazzy Contacts organizations which have recently been modified or created",
+         "type":"polling",
+         "main":"./lib/triggers/getOrganizationsPolling.js",
+         "metadata":{
+            "in":"./lib/schemas/getOrganizations.in.json",
+            "out":"./lib/schemas/getOrganizations.out.json"
+         }
+      }
+   },
+   "actions":{
+      "upsertPerson":{
+         "title":"Upsert a person in Snazzy Contacts",
+         "main":"./lib/actions/upsertPerson.js",
+         "metadata":{
+            "in":"./lib/schemas/upsertPerson.in.json",
+            "out":"./lib/schemas/upsertPerson.out.json"
+         }
       },
-    }
-  },
-  "triggers": {
-    "getPersonsPolling": {
-      "title": "Fetch new and updated persons(getPersons - Polling)",
-      "description": "Get Snazzy Contacts persons which have recently been modified or created",
-      "type": "polling",
-      "main": "./lib/triggers/getPersonsPolling.js",
-      "metadata": {
-        "in": "./lib/schemas/getPersons.in.json",
-        "out": "./lib/schemas/getPersons.out.json"
+      "upsertOrganization":{
+         "main":"./lib/actions/upsertOrganization.js",
+         "title":"Upsert an organization  in Snazzy Contacts",
+         "metadata":{
+            "in":"./lib/schemas/upsertOrganization.in.json"
+         }
+      },
+      "upsertPersonOrOrganization":{
+         "title":"Upsert a person in Snazzy Contacts",
+         "main":"./lib/actions/upsertPersonOrOrganization.js",
+         "metadata":{
+            "in":"./lib/schemas/upsertPerson.in.json",
+            "out":"./lib/schemas/upsertPerson.out.json"
+         }
       }
-    },
-    "getOrganizationsPolling": {
-      "title": "Fetch new and updated organizations(getOrganizations- Polling)",
-      "description": "Get Snazzy Contacts organizations which have recently been modified or created",
-      "type": "polling",
-      "main": "./lib/triggers/getOrganizationsPolling.js",
-      "metadata": {
-        "in": "./lib/schemas/getOrganizations.in.json",
-        "out": "./lib/schemas/getOrganizations.out.json"
-      }
-    }
-  },
-  "actions": {
-    "upsertPerson": {
-      "title": "Upsert a person in Snazzy Contacts",
-      "main": "./lib/actions/upsertPerson.js",
-      "metadata": {
-        "in": "./lib/schemas/upsertPerson.in.json",
-        "out": "./lib/schemas/upsertPerson.out.json"
-      }
-    },
-    "upsertOrganization": {
-      "main": "./lib/actions/upsertOrganization.js",
-      "title": "Upsert an organization  in Snazzy Contacts",
-      "metadata": {
-        "in": "./lib/schemas/upsertOrganization.in.json"
-      }
-    },
-    "upsertPersonOrOrganization": {
-      "title": "Upsert a person in Snazzy Contacts",
-      "main": "./lib/actions/upsertPersonOrOrganization.js",
-      "metadata": {
-        "in": "./lib/schemas/upsertPerson.in.json",
-        "out": "./lib/schemas/upsertPerson.out.json"
-      }
-    }
-  }
+   }
 }
