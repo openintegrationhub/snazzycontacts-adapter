@@ -27,7 +27,7 @@
       "type": "polling",
       "main": "./lib/triggers/getPersonsPolling.js",
       "metadata": {
-        "in": "./lib/schemas/getPersons.in.json"
+        "in": "./lib/schemas/getPersons.in.json",
         "out": "./lib/schemas/getPersons.out.json"
       }
     },
@@ -37,7 +37,7 @@
       "type": "polling",
       "main": "./lib/triggers/getOrganizationsPolling.js",
       "metadata": {
-        "in": "./lib/schemas/getOrganizations.in.json"
+        "in": "./lib/schemas/getOrganizations.in.json",
         "out": "./lib/schemas/getOrganizations.out.json"
       }
     }
