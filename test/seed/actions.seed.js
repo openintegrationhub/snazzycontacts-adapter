@@ -180,6 +180,7 @@ const updatePerson = nock('https://api.snazzycontacts.com/api/operation/integrat
   .query({
     appId: 'someApp',
     recordUid: '25mop1jxq2ss3x',
+    metaUserId: 'someUser',
   })
   .reply(200, [{
     eventId: 'o0d48u31jzxuwspc',
