@@ -100,11 +100,11 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
     expect(person).to.not.be.empty;
     expect(person).to.be.a('object');
     expect(person.statusCode).to.be.equal(200);
-    expect(person.body.eventName).to.equal('PersonCreated');
-    expect(person.body.meta.role).to.equal('USER');
-    expect(person.body.meta.username).to.equal('admin@wice.de');
-    expect(person.body.payload.firstName).to.equal('John');
-    expect(person.body.payload.lastName).to.equal('Doe');
+    expect(person.body[0].eventName).to.equal('PersonCreated');
+    expect(person.body[0].meta.role).to.equal('USER');
+    expect(person.body[0].meta.username).to.equal('admin@wice.de');
+    expect(person.body[0].payload.firstName).to.equal('John');
+    expect(person.body[0].payload.lastName).to.equal('Doe');
   });
 
   it('should not create a person if type is undefined', async () => {
@@ -113,15 +113,15 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
   });
 
   it('should update a person', async () => {
-    const person = await upsertObject(persons[4], token, true, 'person', persons[4].metadata.recordUid);
+    const person = await upsertObject(persons[4], token, true, 'person', persons[4].metadata.recordUid, 'someApp');
     expect(person).to.not.be.empty;
     expect(person).to.be.a('object');
     expect(person.statusCode).to.be.equal(200);
-    expect(person.body.eventName).to.equal('PersonLastNameUpdated');
-    expect(person.body.meta.role).to.equal('USER');
-    expect(person.body.meta.username).to.equal('admin@wice.de');
-    expect(person.body.payload.uid).to.equal('25mop1jzwjc4by');
-    expect(person.body.payload.lastName).to.equal('Stevenson');
+    expect(person.body[0].eventName).to.equal('PersonLastNameUpdated');
+    expect(person.body[0].meta.role).to.equal('USER');
+    expect(person.body[0].meta.username).to.equal('admin@wice.de');
+    expect(person.body[0].payload.uid).to.equal('25mop1jzwjc4by');
+    expect(person.body[0].payload.lastName).to.equal('Stevenson');
   });
 
   it('should throw an exception if input does not match models', async () => {

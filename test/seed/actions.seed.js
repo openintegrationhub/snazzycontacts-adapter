@@ -1,11 +1,11 @@
 const nock = require('nock');
 
-const createPersonSuccessful = nock('https://api.snazzycontacts.com/api/operation')
-  .post('')
-  .query({
-    type: 'person',
-  })
-  .reply(200, {
+const createPersonSuccessful = nock('https://api.snazzycontacts.com/api/operation/integration/person')
+  .put('')
+  // .query({
+  //   type: 'person',
+  // })
+  .reply(200, [{
     eventId: 'yj5o81jvazco6v',
     eventName: 'PersonCreated',
     meta: {
@@ -29,13 +29,13 @@ const createPersonSuccessful = nock('https://api.snazzycontacts.com/api/operatio
       title: '',
       birthday: '',
     },
-  });
+  }]);
 
-const createPersonFailed = nock('https://api.snazzycontacts.com/api/operation')
-  .post('')
-  .query({
-    type: 'person',
-  })
+const createPersonFailed = nock('https://api.snazzycontacts.com/api/operation/integration/person')
+  .put('')
+  // .query({
+  //   type: 'person',
+  // })
   .reply(400, 'Data does not match schema!');
 
 const deletePersonSuccessful = nock('https://api.snazzycontacts.com/api/person/8sjwp1jvdhswq2')
@@ -64,11 +64,11 @@ const deletePersonNotFound = nock('https://api.snazzycontacts.com/api/person/111
   .delete('')
   .reply(204);
 
-const createOrganizationSuccessful = nock('https://api.snazzycontacts.com/api/operation')
-  .post('')
-  .query({
-    type: 'organization',
-  })
+const createOrganizationSuccessful = nock('https://api.snazzycontacts.com/api/operation/integration/organization')
+  .put('')
+  // .query({
+  //   type: 'organization',
+  // })
   .reply(200, {
     eventId: '3gbds1jvduhqiw',
     eventName: 'OrganizationCreated',
@@ -103,11 +103,11 @@ const createOrganizationSuccessful = nock('https://api.snazzycontacts.com/api/op
     },
   });
 
-const createOrganizationFailed = nock('https://api.snazzycontacts.com/api/operation')
-  .post('')
-  .query({
-    type: 'organization',
-  })
+const createOrganizationFailed = nock('https://api.snazzycontacts.com/api/operation/integration/organization')
+  .put('')
+  // .query({
+  //   type: 'organization',
+  // })
   .reply(400, 'Data does not match schema!');
 
 const deleteOrganizationSuccessful = nock('https://api.snazzycontacts.com/api/organization/2jkwerjvdhswq2')
@@ -175,12 +175,13 @@ const getPerson = nock('https://api.snazzycontacts.com/api/person/25mop1jxq2ss3x
     lastUpdateById: null,
   });
 
-const updatePerson = nock('https://api.snazzycontacts.com/api/operation/person')
+const updatePerson = nock('https://api.snazzycontacts.com/api/operation/integration/person')
   .put('')
   .query({
-    type: 'person',
+    appId: 'someApp',
+    recordUid: '25mop1jxq2ss3x',
   })
-  .reply(200, {
+  .reply(200, [{
     eventId: 'o0d48u31jzxuwspc',
     eventName: 'PersonLastNameUpdated',
     meta: {
@@ -195,7 +196,7 @@ const updatePerson = nock('https://api.snazzycontacts.com/api/operation/person')
       uid: '25mop1jzwjc4by',
       lastName: 'Stevenson',
     },
-  });
+  }]);
 
 const personResolve = nock('https://api.snazzycontacts.com/api/person/902jf1jxq2ss3x')
   .get('')
