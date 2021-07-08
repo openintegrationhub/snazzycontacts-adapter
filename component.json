@@ -65,6 +65,29 @@
             "in":"./lib/schemas/upsertPerson.in.json",
             "out":"./lib/schemas/upsertPerson.out.json"
          }
+      },
+      "upsertPersonAdvanced":{
+         "title":"Upsert a person in Snazzy Contacts",
+         "main":"./lib/actions/upsertPersonAdvanced.js",
+         "metadata":{
+            "in":"./lib/schemas/upsertPersonAdvanced.in.json",
+            "out":"./lib/schemas/upsertPersonAdvanced.out.json"
+         }
+      },
+      "upsertOrganizationAdvanced":{
+         "main":"./lib/actions/upsertOrganizationAdvanced.js",
+         "title":"Upsert an organization  in Snazzy Contacts",
+         "metadata":{
+            "in":"./lib/schemas/upsertOrganizationAdvanced.in.json"
+         }
+      },
+      "upsertPersonOrOrganizationAdvanced":{
+         "title":"Upsert a person in Snazzy Contacts",
+         "main":"./lib/actions/upsertPersonOrOrganizationAdvanced.js",
+         "metadata":{
+            "in":"./lib/schemas/upsertPersonAdvanced.in.json",
+            "out":"./lib/schemas/upsertPersonAdvanced.out.json"
+         }
       }
    }
 }

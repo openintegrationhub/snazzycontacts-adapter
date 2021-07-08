@@ -1,15 +1,9 @@
 /* eslint no-unused-expressions: "off" */
 
 const { expect } = require('chai');
-const { upsertObject } = require('../lib/utils/helpers');
+const { upsertObjectAdvanced } = require('../lib/utils/helpers');
 // const { deletePerson } = require('../lib/actions/deletePerson');
 // const { deleteOrganization } = require('../lib/actions/deleteOrganization');
-
-const {
-  resolve,
-  checkForExistingObject,
-  resolveConflict,
-} = require('./../lib/utils/resolver.js');
 
 const {
   createPersonSuccessful,
@@ -26,7 +20,7 @@ const {
   getPerson,
   getPersonFailed,
   getPersonNoToken,
-} = require('./seed/actions.seed');
+} = require('./seed/actionsAdvanced.seed');
 const { persons, organizations } = require('./seed/seed');
 
 describe('Actions - upsertPerson & upsertOrganization', () => {
@@ -48,83 +42,36 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
     getPersonNoToken;
   });
 
-  it('should resolve a conflict via CFM module', async () => {
-    const res = await resolve(persons[5], token, 'person');
-    expect(res.resolvedConflict.firstName).to.equal('Jane');
-    expect(res.resolvedConflict.lastName).to.equal('Brown');
-    expect(res.resolvedConflict.uid).to.equal('902jf1jxq2ss3x');
-    expect(res.resolvedConflict.gender).to.equal('female');
-    expect(res.resolvedConflict.addresses[0].city).to.equal('Cologne');
-    expect(res.resolvedConflict.categories[0].label).to.equal('Customer');
-  });
-
-  it('should resolve a conflict', async () => {
-    const res = resolveConflict(persons[3], persons[6]);
-    expect(res.firstName).to.equal('Mark');
-    expect(res.lastName).to.equal('Smith');
-    expect(res.uid).to.equal('25mop1jxq2ss3x');
-    expect(res.gender).to.equal('male');
-    expect(res.meta).to.be.a('object');
-    expect(res.addresses[0].street).to.equal('Some Str.');
-    expect(res.addresses.length).to.equal(2);
-    expect(res.contactData.length).to.equal(3);
-    expect(res.categories.length).to.equal(3);
-    expect(res.relations.length).to.equal(0);
-  });
-
-  it('should check for an existing person', async () => {
-    const res = await checkForExistingObject(persons[0], token, 'person');
-    expect(res.firstName).to.equal('Yahoouser');
-    expect(res.lastName).to.equal('Accountname');
-    expect(res.uid).to.equal('25mop1jxq2ss3x');
-    expect(res.gender).to.equal('');
-    expect(res.meta).to.be.a('object');
-    expect(res.addresses.length).to.equal(0);
-    expect(res.contactData.length).to.equal(0);
-    expect(res.categories.length).to.equal(1);
-    expect(res.relations.length).to.equal(0);
-  });
-
-  it('should return false if response is undefined', async () => {
-    const res = await checkForExistingObject(persons[1], token, 'person');
-    expect(res).to.be.false;
-  });
-
-  it('should return false if token is undefined', async () => {
-    const res = await checkForExistingObject(persons[2], undefined, 'person');
-    expect(res).to.be.false;
-  });
-
-  it('should create a person', async () => {
-    const person = await upsertObject(persons[0], token, false, 'person');
+  it('should create a person via upsertAdvanced', async () => {
+    const person = await upsertObjectAdvanced(persons[0], token, false, 'person');
     expect(person).to.not.be.empty;
     expect(person).to.be.a('object');
     expect(person.statusCode).to.be.equal(200);
-    expect(person.body.eventName).to.equal('PersonCreated');
-    expect(person.body.meta.role).to.equal('USER');
-    expect(person.body.meta.username).to.equal('admin@wice.de');
-    expect(person.body.payload.firstName).to.equal('John');
-    expect(person.body.payload.lastName).to.equal('Doe');
+    expect(person.body[0].eventName).to.equal('PersonCreated');
+    expect(person.body[0].meta.role).to.equal('USER');
+    expect(person.body[0].meta.username).to.equal('admin@wice.de');
+    expect(person.body[0].payload.firstName).to.equal('John');
+    expect(person.body[0].payload.lastName).to.equal('Doe');
   });
 
-  it('should not create a person if type is undefined', async () => {
-    const person = await upsertObject(persons[0], token, false);
+  it('should not create a person if type is undefined via upsertAdvanced', async () => {
+    const person = await upsertObjectAdvanced(persons[0], token, false);
     expect(person).to.be.false;
   });
 
-  it('should update a person', async () => {
-    const person = await upsertObject(persons[4], token, true, 'person', persons[4].metadata.recordUid);
+  it('should update a person via upsertAdvanced', async () => {
+    const person = await upsertObjectAdvanced(persons[4], token, true, 'person', persons[4].metadata.recordUid, 'someApp', 'someUser');
     expect(person).to.not.be.empty;
     expect(person).to.be.a('object');
     expect(person.statusCode).to.be.equal(200);
-    expect(person.body.eventName).to.equal('PersonLastNameUpdated');
-    expect(person.body.meta.role).to.equal('USER');
-    expect(person.body.meta.username).to.equal('admin@wice.de');
-    expect(person.body.payload.uid).to.equal('25mop1jzwjc4by');
-    expect(person.body.payload.lastName).to.equal('Stevenson');
+    expect(person.body[0].eventName).to.equal('PersonLastNameUpdated');
+    expect(person.body[0].meta.role).to.equal('USER');
+    expect(person.body[0].meta.username).to.equal('admin@wice.de');
+    expect(person.body[0].payload.uid).to.equal('25mop1jzwjc4by');
+    expect(person.body[0].payload.lastName).to.equal('Stevenson');
   });
 
-  it('should throw an exception if input does not match models', async () => {
+  it('should throw an exception if input does not match models via upsertAdvanced', async () => {
     const input = {
       body: {
         meta: {
@@ -137,13 +84,13 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
         },
       },
     };
-    const person = await upsertObject(input, token, false, 'person');
+    const person = await upsertObjectAdvanced(input, token, false, 'person');
     expect(person.statusCode).to.be.equal(400);
     expect(person.body).to.be.equal('Data does not match schema!');
   });
 
-  it('should create an organization', async () => {
-    const organization = await upsertObject(organizations[0], token, false, 'organization');
+  it('should create an organization via upsertAdvanced', async () => {
+    const organization = await upsertObjectAdvanced(organizations[0], token, false, 'organization');
     expect(organization).to.not.be.empty;
     expect(organization.statusCode).to.be.equal(200);
     expect(organization).to.be.a('object');
@@ -154,7 +101,7 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
     expect(organization.body.payload.logo).to.equal('Logo');
   });
 
-  it('should return 400 and throw an exception if input does not match models', async () => {
+  it('should return 400 and throw an exception if input does not match models via upsertAdvanced', async () => {
     const input = {
       body: {
         meta: {
@@ -166,7 +113,7 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
         },
       },
     };
-    const organization = await upsertObject(input, token, false, 'organization');
+    const organization = await upsertObjectAdvanced(input, token, false, 'organization');
     expect(organization.statusCode).to.be.equal(400);
     expect(organization.body).to.be.equal('Data does not match schema!');
   });
