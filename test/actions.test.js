@@ -1,7 +1,7 @@
 /* eslint no-unused-expressions: "off" */
 
 const { expect } = require('chai');
-const { upsertObject } = require('../lib/utils/helpers');
+const { upsertObject, deleteObject } = require('../lib/utils/helpers');
 // const { deletePerson } = require('../lib/actions/deletePerson');
 // const { deleteOrganization } = require('../lib/actions/deleteOrganization');
 
@@ -14,11 +14,13 @@ const {
 const {
   createPersonSuccessful,
   createPersonFailed,
+  deletePerson,
   // deletePersonSuccessful,
   // deletePersonFailed,
   // deletePersonNotFound,
   createOrganizationSuccessful,
   createOrganizationFailed,
+  deleteOrganization,
   // deleteOrganizationSuccessful,
   // deleteOrganizationFailed,
   // deleteOrganizationNotFound,
@@ -27,18 +29,22 @@ const {
   getPersonFailed,
   getPersonNoToken,
 } = require('./seed/actions.seed');
-const { persons, organizations } = require('./seed/seed');
+const {
+  persons, organizations, personDeletes, organizationDeletes,
+} = require('./seed/seed');
 
 describe('Actions - upsertPerson & upsertOrganization', () => {
   const token = 'WXYUFOmgDdoniZatfaMTa4Ov-An98v2-4668x5fXOoLZS';
   before(async () => {
     createPersonSuccessful;
     createPersonFailed;
+    deletePerson;
     // deletePersonSuccessful;
     // deletePersonFailed;
     // deletePersonNotFound;
     createOrganizationSuccessful;
     createOrganizationFailed;
+    deleteOrganization;
     // deleteOrganizationSuccessful;
     // deleteOrganizationFailed;
     // deleteOrganizationNotFound;
@@ -142,6 +148,16 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
     expect(person.body).to.be.equal('Data does not match schema!');
   });
 
+  it('should delete a person', async () => {
+    const person = await deleteObject(personDeletes[0], token, 'person', personDeletes[0].metadata.recordUid);
+
+    expect(person).to.not.be.empty;
+    expect(person).to.be.a('object');
+    expect(person.delete).to.equal('confirmed');
+    expect(person.signature).to.equal('');
+    expect(parseInt(person.timestamp, 10) > 0).to.equal(true);
+  });
+
   it('should create an organization', async () => {
     const organization = await upsertObject(organizations[0], token, false, 'organization');
     expect(organization).to.not.be.empty;
@@ -169,6 +185,15 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
     const organization = await upsertObject(input, token, false, 'organization');
     expect(organization.statusCode).to.be.equal(400);
     expect(organization.body).to.be.equal('Data does not match schema!');
+  });
+
+  it('should delete a organization', async () => {
+    const person = await deleteObject(organizationDeletes[0], token, 'organization', organizationDeletes[0].metadata.recordUid);
+    expect(person).to.not.be.empty;
+    expect(person).to.be.a('object');
+    expect(person.delete).to.equal('confirmed');
+    expect(person.signature).to.equal('');
+    expect(parseInt(person.timestamp, 10) > 0).to.equal(true);
   });
 
   // it('should return 200 and delete a person', async () => {
