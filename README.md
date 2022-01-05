@@ -52,6 +52,54 @@ As of version 2.0.0, transformations to and from the OIH contact master data mod
 
 If you would like to use the old behaviour without integrated transformations, simply set `skipTransformation: true` in the `fields` object of your flow configuration. Alternatively, you can also inject a valid, stringified JSONata expression in the `customMapping` key of the `fields` object, which will be used instead of the integrated transformation.
 
+## Sending of delete messages
+
+This connector can retrieve entries that are deleted since the last snapshot and send a OIH delete message. For this to work OIH-ID-Linking must be activated and the Snazzy-Step of the flow requires at least the following parameters:
+
+```
+nodeSettings: {
+  idLinking: true,
+  applicationUid: 'snazzy'
+},
+fields: {
+  targetApp: 'Name of Target App',
+  snazzyFlowVersion: 2,
+  deletes: true,
+}
+```
+
+## Receiving of delete messages
+
+This connector can receive OIH Delete messages and delete the corresponding entry in SNAZZY Contacts. For this to work OIH-ID-Linking must be activated and the Snazzy-Step of the flow requires at least the following parameters:
+
+```
+"nodeSettings":{
+   "idLinking":true,
+   "applicationUid":"snazzy",
+   "alternateAppUid":"AppId of source app"
+},
+"fields":{
+   "devMode":true,
+   "sourceApp":"AppId of source app",
+   "snazzyFlowVersion":2,
+   "deletes": true
+}
+```
+
+## Format of OIH delete messages
+
+```
+{
+    metadata: {
+        recordUid: 'some id'
+        oihUid: '123',
+        applicationUid: 'xy',
+    },
+    data: {
+        deleteRequested: 'timestamp as string',
+    }
+}
+```
 
 ## License
 
