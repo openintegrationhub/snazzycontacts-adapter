@@ -149,7 +149,7 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
   });
 
   it('should delete a person', async () => {
-    const person = await deleteObject(personDeletes[0], token, 'person', personDeletes[0].metadata.recordUid);
+    const person = await deleteObject(token, 'person', personDeletes[0].metadata.recordUid);
 
     expect(person).to.not.be.empty;
     expect(person).to.be.a('object');
@@ -188,7 +188,7 @@ describe('Actions - upsertPerson & upsertOrganization', () => {
   });
 
   it('should delete a organization', async () => {
-    const person = await deleteObject(organizationDeletes[0], token, 'organization', organizationDeletes[0].metadata.recordUid);
+    const person = await deleteObject(token, 'organization', organizationDeletes[0].metadata.recordUid);
     expect(person).to.not.be.empty;
     expect(person).to.be.a('object');
     expect(person.delete).to.equal('confirmed');
