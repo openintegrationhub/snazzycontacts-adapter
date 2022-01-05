@@ -62,7 +62,7 @@ nodeSettings: {
   applicationUid: 'snazzy'
 },
 fields: {
-  targetApp: 'Name of Target App',
+  targetApp: 'AppId of target app',
   snazzyFlowVersion: 2,
   deletes: true,
 }
@@ -76,11 +76,9 @@ This connector can receive OIH Delete messages and delete the corresponding entr
 "nodeSettings":{
    "idLinking":true,
    "applicationUid":"snazzy",
-   "alternateAppUid":"AppId of source app"
 },
 "fields":{
    "devMode":true,
-   "sourceApp":"AppId of source app",
    "snazzyFlowVersion":2,
    "deletes": true
 }
