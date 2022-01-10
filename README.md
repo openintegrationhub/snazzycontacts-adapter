@@ -98,6 +98,23 @@ This connector can receive OIH Delete messages and delete the corresponding entr
     }
 }
 ```
+## Format of OIH delete confirm messages
+
+```
+{
+    metadata: {
+        recordUid: 'Entries record Id'
+        oihUid: 'OIH Id of the entry',
+        applicationUid: 'SomeApp',
+    },
+    data:
+    {
+        delete: enum('pending', 'confirmed', 'denied', 'failed')
+        signature: 'optional',
+        timestamp: '123456789',
+    }
+}
+```
 
 ## License
 
