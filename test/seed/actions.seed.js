@@ -38,31 +38,39 @@ const createPersonFailed = nock('https://api.snazzycontacts.com/api/operation')
   })
   .reply(400, 'Data does not match schema!');
 
-const deletePersonSuccessful = nock('https://api.snazzycontacts.com/api/person/8sjwp1jvdhswq2')
+const deletePerson = nock('https://api.snazzycontacts.com/api/person')
   .delete('')
   .reply(200, {
-    id: '3gbbk1jmq3nv5q',
-    eventName: 'PersonDeleted',
-    timeStamp: '1537791877918',
-    meta: {
-      role: 'TENANT_ADMIN',
-      user: '5d945793728470011e122fa',
-      tenant: '31d21937284700730d73j8',
-      username: 'example@wice.de',
-    },
-    causalId: '0',
-    payload: {
-      uid: '8sjwp1jvdhswq2',
-    },
+    delete: 'confirmed',
+    signature: '',
+    timestamp: '123456789',
   });
 
-const deletePersonFailed = nock('https://api.snazzycontacts.com/api/person/')
-  .delete('')
-  .reply(400, 'Uid is not defined!');
+// const deletePersonSuccessful = nock('https://api.snazzycontacts.com/api/person/8sjwp1jvdhswq2')
+//   .delete('')
+//   .reply(200, {
+//     id: '3gbbk1jmq3nv5q',
+//     eventName: 'PersonDeleted',
+//     timeStamp: '1537791877918',
+//     meta: {
+//       role: 'TENANT_ADMIN',
+//       user: '5d945793728470011e122fa',
+//       tenant: '31d21937284700730d73j8',
+//       username: 'example@wice.de',
+//     },
+//     causalId: '0',
+//     payload: {
+//       uid: '8sjwp1jvdhswq2',
+//     },
+//   });
 
-const deletePersonNotFound = nock('https://api.snazzycontacts.com/api/person/111111')
-  .delete('')
-  .reply(204);
+// const deletePersonFailed = nock('https://api.snazzycontacts.com/api/person/')
+//   .delete('')
+//   .reply(400, 'Uid is not defined!');
+
+// const deletePersonNotFound = nock('https://api.snazzycontacts.com/api/person/111111')
+//   .delete('')
+//   .reply(204);
 
 const createOrganizationSuccessful = nock('https://api.snazzycontacts.com/api/operation')
   .post('')
@@ -110,31 +118,39 @@ const createOrganizationFailed = nock('https://api.snazzycontacts.com/api/operat
   })
   .reply(400, 'Data does not match schema!');
 
-const deleteOrganizationSuccessful = nock('https://api.snazzycontacts.com/api/organization/2jkwerjvdhswq2')
+const deleteOrganization = nock('https://api.snazzycontacts.com/api/organization')
   .delete('')
   .reply(200, {
-    id: '5dlkk1jmq3nv5q',
-    eventName: 'OrganizationDeleted',
-    timeStamp: '1537791877918',
-    meta: {
-      role: 'TENANT_ADMIN',
-      user: '5d94573j7g37p0011e122fa',
-      tenant: '31d2193hj384kl830d73j8',
-      username: 'example@wice.de',
-    },
-    causalId: '0',
-    payload: {
-      uid: '2jkwerjvdhswq2',
-    },
+    delete: 'confirmed',
+    signature: '',
+    timestamp: '123456789',
   });
 
-const deleteOrganizationFailed = nock('https://api.snazzycontacts.com/api/organization/')
-  .delete('')
-  .reply(400, 'Uid is not defined!');
+// const deleteOrganizationSuccessful = nock('https://api.snazzycontacts.com/api/organization/2jkwerjvdhswq2')
+//   .delete('')
+//   .reply(200, {
+//     id: '5dlkk1jmq3nv5q',
+//     eventName: 'OrganizationDeleted',
+//     timeStamp: '1537791877918',
+//     meta: {
+//       role: 'TENANT_ADMIN',
+//       user: '5d94573j7g37p0011e122fa',
+//       tenant: '31d2193hj384kl830d73j8',
+//       username: 'example@wice.de',
+//     },
+//     causalId: '0',
+//     payload: {
+//       uid: '2jkwerjvdhswq2',
+//     },
+//   });
+//
+// const deleteOrganizationFailed = nock('https://api.snazzycontacts.com/api/organization/')
+//   .delete('')
+//   .reply(400, 'Uid is not defined!');
 
-const deleteOrganizationNotFound = nock('https://api.snazzycontacts.com/api/organization/222222')
-  .delete('')
-  .reply(204);
+// const deleteOrganizationNotFound = nock('https://api.snazzycontacts.com/api/organization/222222')
+//   .delete('')
+//   .reply(204);
 
 const getPerson = nock('https://api.snazzycontacts.com/api/person/25mop1jxq2ss3x')
   .get('')
@@ -262,14 +278,16 @@ const getPersonNoToken = nock('https://api.snazzycontacts.com/api/person/98hkp1j
 module.exports = {
   createPersonSuccessful,
   createPersonFailed,
-  deletePersonSuccessful,
-  deletePersonFailed,
-  deletePersonNotFound,
+  deletePerson,
+  // deletePersonSuccessful,
+  // deletePersonFailed,
+  // deletePersonNotFound,
   createOrganizationSuccessful,
   createOrganizationFailed,
-  deleteOrganizationSuccessful,
-  deleteOrganizationFailed,
-  deleteOrganizationNotFound,
+  deleteOrganization,
+  // deleteOrganizationSuccessful,
+  // deleteOrganizationFailed,
+  // deleteOrganizationNotFound,
   updatePerson,
   getPerson,
   getPersonFailed,

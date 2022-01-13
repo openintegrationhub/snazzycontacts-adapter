@@ -291,10 +291,34 @@ const persons = [{
 },
 ];
 
+const personDeletes = [
+  {
+    metadata: {
+      recordUid: 'p1',
+    },
+    data: {
+      deleteRequested: '12345678',
+    },
+  },
+];
+
+const organizationDeletes = [
+  {
+    metadata: {
+      recordUid: 'o1',
+    },
+    data: {
+      deleteRequested: '12345679',
+    },
+  },
+];
+
 
 module.exports = {
   options,
   configOptions,
   persons,
   organizations,
+  personDeletes,
+  organizationDeletes,
 };
